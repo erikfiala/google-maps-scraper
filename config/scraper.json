@@ -1,0 +1,80 @@
+{
+  "fields": {
+    "name": true,
+    "email": true,
+    "phone": false,
+    "address": false,
+    "website": false,
+    "category": true,
+    "maps_url": false,
+    "place_id": false,
+    "city": false,
+    "state": false,
+    "country": false
+  },
+  "search": {
+    "country": "us",
+    "categories": [
+      {
+        "slug": "marketing-agency",
+        "enabled": true,
+        "label": "marketing agency",
+        "queries": ["marketing agency", "advertising agency"]
+      },
+      {
+        "slug": "book-publisher",
+        "enabled": false,
+        "label": "book publisher",
+        "queries": ["book publisher"]
+      },
+      {
+        "slug": "writers-association",
+        "enabled": false,
+        "label": "writers association",
+        "queries": ["writers association", "writers club", "writers group"]
+      },
+      {
+        "slug": "writing-workshop",
+        "enabled": false,
+        "label": "writing workshop",
+        "queries": ["writing workshop", "creative writing school", "writing center"]
+      },
+      {
+        "slug": "self-publishing-service",
+        "enabled": false,
+        "label": "self-publishing service",
+        "queries": ["self-publishing service", "book publishing service"]
+      },
+      {
+        "slug": "book-publishing-consultant",
+        "enabled": false,
+        "label": "book publishing consultant",
+        "queries": ["book publishing consultant"]
+      },
+      {
+        "slug": "literary-agency",
+        "enabled": false,
+        "label": "literary agency",
+        "queries": ["literary agency"]
+      },
+      {
+        "slug": "audiobook-production",
+        "enabled": false,
+        "label": "audiobook production",
+        "queries": ["audiobook production", "audiobook studio"]
+      },
+      {
+        "slug": "podcast-production",
+        "enabled": false,
+        "label": "podcast production company",
+        "queries": ["podcast production company"]
+      },
+      {
+        "slug": "narrator-voiceover",
+        "enabled": false,
+        "label": "narrator / voice-over",
+        "queries": ["audiobook recording studio", "voice over studio", "narrator"]
+      }
+    ]
+  }
+}

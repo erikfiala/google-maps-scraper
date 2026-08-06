@@ -1,0 +1,26 @@
+{
+  "name": "google-maps-scraper",
+  "version": "1.0.0",
+  "description": "Self-hosted Google Maps multi-category scraper + website email enrichment",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "scrape": "tsx src/geo_harvest.ts",
+    "enrich": "tsx src/cli.ts enrich",
+    "export": "tsx src/cli.ts export",
+    "cli": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "playwright": "^1.54.2",
+    "zod": "^4.0.14"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  }
+}
