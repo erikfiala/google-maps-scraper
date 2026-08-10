@@ -145,6 +145,12 @@ data/<country>/<category-slug>/
 - If Google shows a CAPTCHA, the scraper **pauses**, logs the tile, and sets `pausedForCaptcha` in `progress.json`.
 - Resolve manually with `--headed` if headless retries fail.
 
+**Concurrency locks** — scrape and enrich are mutually exclusive per category:
+
+- `scrape` writes `.scrape_lock` (and refuses to start while `.enrich_lock` exists).
+- `enrich` writes `.enrich_lock` (and refuses to start while `.scrape_lock` exists).
+- Locks are removed automatically on normal exit. If a process is killed, a stale lock blocks the other command — delete `data/<country>/<category>/.scrape_lock` or `.enrich_lock` to force.
+
 ## Disclaimer
 
 This tool is for educational and legitimate research use. Respect Google’s Terms of Service, applicable laws, and website robots/terms when enriching emails. You are responsible for how you use scraped data (including CAN-SPAM / GDPR / marketing consent). Scraping at scale may trigger rate limits or blocks; be a good citizen.

@@ -1,5 +1,7 @@
 import * as cheerio from "cheerio";
-import { CONTACT_PATHS, isFieldEnabled, randomDelay } from "./config.js";
+import { existsSync, rmSync, writeFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { CONTACT_PATHS, dataDir, isFieldEnabled, randomDelay } from "./config.js";
 import { loadPlaces, rewritePlaces } from "./store.js";
 import type { EnrichOptions, PlaceRecord } from "./types.js";
 
@@ -77,7 +79,13 @@ async function fetchHtml(url: string, timeoutMs: number): Promise<string | null>
     if (!res.ok) return null;
     const ct = res.headers.get("content-type") ?? "";
     if (ct && !/text\/html|application\/xhtml/i.test(ct)) return null;
-    return await res.text();
+    // Cap body size: business sites can serve multi-MB pages; we only need
+    // the text for email extraction. Prevents unbounded memory on --timeout
+    // with slow-drip responses.
+    const MAX_BODY = 5 * 1024 * 1024;
+    const buf = await res.arrayBuffer();
+    if (buf.byteLength > MAX_BODY) return null;
+    return new TextDecoder("utf-8", { fatal: false }).decode(buf);
   } catch {
     return null;
   } finally {
@@ -201,6 +209,23 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
     return { total: 0, enriched: 0, withEmail: 0 };
   }
 
+  // Mutual exclusion with scrape: refuse to run while a scrape holds the lock
+  // (checkpointPlaces rewrites places.jsonl and would otherwise clobber the
+  // scrape's concurrent appends).
+  const lockPath = resolve(dataDir(opts.country, opts.categorySlug), ".scrape_lock");
+  if (existsSync(lockPath)) {
+    console.error(
+      `[enrich] Scrape lock present (${lockPath}) — enrich would race the scrape. ` +
+        `Wait for the scrape to finish or remove the lock to force.`,
+    );
+    return { total: places.length, enriched: 0, withEmail: 0 };
+  }
+  const enrichLockPath = resolve(
+    dataDir(opts.country, opts.categorySlug),
+    ".enrich_lock",
+  );
+  if (!existsSync(enrichLockPath)) writeFileSync(enrichLockPath, String(process.pid), "utf8");
+
   const needsWork = places.filter((p) => !p.enriched_at);
   console.log(
     `[enrich] category=${opts.categorySlug} ${places.length} places, ` +
@@ -245,6 +270,11 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
     });
   } finally {
     process.off("uncaughtException", onUncaught);
+    try {
+      if (existsSync(enrichLockPath)) rmSync(enrichLockPath);
+    } catch {
+      // best-effort; a stale .enrich_lock blocks scrape until removed (README)
+    }
   }
 
   const merged = checkpointPlaces(opts.country, opts.categorySlug, places, updatedById);
