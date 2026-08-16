@@ -21,6 +21,13 @@ import {
 import { runEnrich } from "./enrich.js";
 import { runScrape } from "./maps.js";
 import {
+  categoryConfigSnippet,
+  listMapsCategories,
+  listMapsCategoryGroups,
+  loadMapsCategoryCatalog,
+  searchMapsCategories,
+} from "./maps_categories.js";
+import {
   ensureDataDir,
   exportCsv,
   loadPlaces,
@@ -52,11 +59,13 @@ Usage:
   npm run scrape -- [options]
   npm run enrich -- [options]
   npm run export -- [options]
+  npm run categories -- [options]
 
 Commands:
-  scrape   Discover places on Google Maps (Playwright)
-  enrich   Fetch websites and extract emails (only if fields.email=true)
-  export   Write data/<country>/<category>/leads.csv (enabled fields only)
+  scrape       Discover places on Google Maps (Playwright)
+  enrich       Fetch websites and extract emails (only if fields.email=true)
+  export       Write data/<country>/<category>/leads.csv (enabled fields only)
+  categories   Search the full Google Maps place-type catalog
 
 Scrape options:
   --country <code>     Country config (default: ${DEFAULT_COUNTRY})
@@ -75,9 +84,18 @@ Enrich / export options:
   --concurrency <n>    Parallel fetches (default: ${DEFAULT_ENRICH_CONCURRENCY})
   --timeout <ms>       Per-request timeout (default: ${DEFAULT_ENRICH_TIMEOUT_MS})
 
+Categories catalog options:
+  --search <text>      Substring search (id, label, group, suggested queries)
+  --group <name>       Filter by group (e.g. Services, "Food and Drink")
+  --table <A|B>        Filter Places API table (A = primary/searchable types)
+  --limit <n>          Max results (default: 50)
+  --json               Print raw JSON instead of a table
+  --snippet            Print a ready-to-paste scraper.json category object per hit
+
 Config: config/scraper.json
   Export columns (enabled): ${fields}
   Pipeline (enabled categories): ${enabled.join(" → ") || "(none — enable in config)"}
+  Full Maps catalog: config/google_maps_categories.json
 
 Data layout: data/<country>/<category-slug>/{places.jsonl,progress.json,leads.csv}
 `);
@@ -225,6 +243,93 @@ async function cmdExport(flags: Map<string, string | boolean>): Promise<void> {
   );
 }
 
+function cmdCategories(flags: Map<string, string | boolean>): void {
+  const catalog = loadMapsCategoryCatalog();
+  const search = flagStr(flags, "search", "");
+  const group = flagStr(flags, "group", "");
+  const table = flagStr(flags, "table", "");
+  const limit = flagNum(flags, "limit", 50);
+  const asJson = flagBool(flags, "json");
+  const snippet = flagBool(flags, "snippet");
+
+  if (!search && !group && !table && !asJson && !snippet) {
+    console.log(
+      `Google Maps place types: ${catalog.count} categories in ${catalog.groups.length} groups`,
+    );
+    console.log(`Source: ${catalog.sourceUrl}`);
+    console.log(`Updated: ${catalog.updated}`);
+    console.log("");
+    console.log("Groups:");
+    for (const g of listMapsCategoryGroups()) {
+      const n = listMapsCategories({ group: g }).length;
+      console.log(`  ${g} (${n})`);
+    }
+    console.log("");
+    console.log("Examples:");
+    console.log('  npm run categories -- --search "marketing"');
+    console.log('  npm run categories -- --group Services --limit 20');
+    console.log('  npm run categories -- --search dentist --snippet');
+    return;
+  }
+
+  let hits = search
+    ? searchMapsCategories(search, limit)
+    : listMapsCategories({
+        group: group || undefined,
+        table: table || undefined,
+      }).slice(0, limit);
+
+  if (search && (group || table)) {
+    hits = hits.filter((c) => {
+      if (group) {
+        const g = group.toLowerCase();
+        if (
+          c.group.toLowerCase() !== g &&
+          !c.group.toLowerCase().includes(g)
+        ) {
+          return false;
+        }
+      }
+      if (table && String(c.table).toUpperCase() !== table.toUpperCase()) {
+        return false;
+      }
+      return true;
+    });
+  }
+
+  if (asJson) {
+    console.log(JSON.stringify(hits, null, 2));
+    return;
+  }
+
+  if (!hits.length) {
+    console.log(`[categories] No matches for search="${search}" group="${group}"`);
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log(
+    `[categories] ${hits.length} result(s)` +
+      (search ? ` for "${search}"` : "") +
+      (group ? ` group="${group}"` : "") +
+      (table ? ` table=${table}` : ""),
+  );
+  console.log("");
+
+  for (const cat of hits) {
+    if (snippet) {
+      console.log(`# ${cat.id} — ${cat.group}`);
+      console.log(categoryConfigSnippet(cat));
+      console.log("");
+      continue;
+    }
+    console.log(
+      `${cat.slug.padEnd(36)} ${cat.label.padEnd(40)} [${cat.group}]`,
+    );
+    console.log(`  queries: ${cat.suggestedQueries.join(" | ")}`);
+  }
+}
+
 async function main(): Promise<void> {
   const { command, flags } = parseArgs(process.argv.slice(2));
   switch (command) {
@@ -236,6 +341,9 @@ async function main(): Promise<void> {
       break;
     case "export":
       await cmdExport(flags);
+      break;
+    case "categories":
+      cmdCategories(flags);
       break;
     default:
       console.error(`Unknown command: ${command}`);

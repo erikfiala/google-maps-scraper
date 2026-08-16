@@ -11,6 +11,7 @@
     "scrape": "tsx src/geo_harvest.ts",
     "enrich": "tsx src/cli.ts enrich",
     "export": "tsx src/cli.ts export",
+    "categories": "tsx src/cli.ts categories",
     "cli": "tsx src/cli.ts"
   },
   "dependencies": {
