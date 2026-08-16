@@ -8,6 +8,10 @@ import type { EnrichOptions, PlaceRecord } from "./types.js";
 const EMAIL_RE =
   /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 
+/** US / E.164-ish phone patterns in visible text. */
+const PHONE_RE =
+  /(?:\+?1[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?)\d{3}[-.\s]?\d{4}\b|\+\d{1,3}[-.\s]?(?:\d[-.\s]?){7,14}\d/g;
+
 const JUNK_LOCAL = /^(noreply|no-reply|donotreply|do-not-reply|mailer-daemon|postmaster|webmaster|abuse|spam)$/i;
 const JUNK_EXT = /\.(png|jpe?g|gif|svg|webp|css|js|ico|woff2?|ttf|eot|pdf|mp[34]|wav|zip)$/i;
 const JUNK_DOMAIN =
@@ -26,6 +30,61 @@ export function isValidEmail(email: string): boolean {
   // filter common template placeholders
   if (/\{|\}|%|<|>/.test(e)) return false;
   return true;
+}
+
+/** Digits only, keep leading + for E.164 when present. */
+export function normalizePhone(raw: string): string {
+  let s = raw.trim();
+  s = s.replace(/^tel:/i, "").split("?")[0].split(",")[0].trim();
+  try {
+    s = decodeURIComponent(s);
+  } catch {
+    // keep undecoded
+  }
+  const hasPlus = s.trim().startsWith("+");
+  const digits = s.replace(/\D/g, "");
+  if (!digits) return "";
+  return hasPlus ? `+${digits}` : digits;
+}
+
+/** Canonical digit key for dedupe (strip leading US country code). */
+export function phoneDedupeKey(raw: string): string {
+  let digits = normalizePhone(raw).replace(/\D/g, "");
+  if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
+  return digits;
+}
+
+export function isValidPhone(raw: string): boolean {
+  const normalized = normalizePhone(raw);
+  if (!normalized) return false;
+  const digits = normalized.replace(/\D/g, "");
+  // US local/NANP = 10; with country code 11 starting with 1; intl up to 15 (E.164)
+  if (digits.length < 10 || digits.length > 15) return false;
+  if (/^(\d)\1+$/.test(digits)) return false; // all same digit
+  if (/^0+$/.test(digits)) return false;
+  // Common fake / placeholder blocks
+  if (/55501\d{2}$/.test(digits)) return false;
+  if (/^1234567890$/.test(digits)) return false;
+  return true;
+}
+
+/** Prefer a human-readable form when the input already has separators. */
+export function formatPhone(raw: string): string {
+  const trimmed = raw.trim().replace(/^tel:/i, "").split("?")[0].trim();
+  const normalized = normalizePhone(trimmed);
+  if (!normalized) return trimmed;
+  const digits = normalized.replace(/\D/g, "");
+  // Keep original formatting when it already looks like a phone display string.
+  if (/[().\-\s]/.test(trimmed) && isValidPhone(trimmed)) {
+    return trimmed.replace(/\s+/g, " ").trim();
+  }
+  if (digits.length === 10) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  }
+  if (digits.length === 11 && digits.startsWith("1")) {
+    return `+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+  }
+  return normalized.startsWith("+") ? normalized : `+${digits}`;
 }
 
 export function extractEmailsFromHtml(html: string): string[] {
@@ -48,6 +107,29 @@ export function extractEmailsFromHtml(html: string): string[] {
   }
 
   return [...found];
+}
+
+export function extractPhonesFromHtml(html: string): string[] {
+  const found = new Map<string, string>(); // digits key → display form
+  const $ = cheerio.load(html);
+
+  $('a[href^="tel:"]').each((_, el) => {
+    const href = $(el).attr("href") ?? "";
+    const raw = href.replace(/^tel:/i, "").split("?")[0];
+    if (!isValidPhone(raw)) return;
+    const key = phoneDedupeKey(raw);
+    if (key && !found.has(key)) found.set(key, formatPhone(raw));
+  });
+
+  const text = $.root().text();
+  for (const m of text.matchAll(PHONE_RE)) {
+    const raw = m[0];
+    if (!isValidPhone(raw)) continue;
+    const key = phoneDedupeKey(raw);
+    if (key && !found.has(key)) found.set(key, formatPhone(raw));
+  }
+
+  return [...found.values()];
 }
 
 function normalizeWebsite(url: string): string | null {
@@ -118,6 +200,11 @@ async function enrichPlace(
   place: PlaceRecord,
   opts: EnrichOptions,
 ): Promise<PlaceRecord> {
+  const wantEmail = isFieldEnabled("email");
+  const wantPhone = isFieldEnabled("phone");
+  const mapsPhone = place.phone?.trim() || null;
+  const needWebsitePhone = wantPhone && !mapsPhone;
+
   if (!place.website) {
     return { ...place, enriched_at: new Date().toISOString() };
   }
@@ -126,7 +213,13 @@ async function enrichPlace(
     return { ...place, enriched_at: new Date().toISOString() };
   }
 
+  // Nothing to crawl for when both email and website-phone are off/unneeded.
+  if (!wantEmail && !needWebsitePhone) {
+    return { ...place, phone: mapsPhone, enriched_at: new Date().toISOString() };
+  }
+
   const emails = new Set<string>();
+  const phones = new Map<string, string>();
   const urls = [base, ...CONTACT_PATHS.map((p) => {
     try {
       return new URL(p, base.endsWith("/") ? base : `${base}/`).toString();
@@ -141,23 +234,38 @@ async function enrichPlace(
   for (const url of uniqueUrls) {
     const html = await fetchHtml(url, opts.timeoutMs);
     if (!html) continue;
-    for (const e of extractEmailsFromHtml(html)) emails.add(e);
-    // early exit if we already have a good contact email
-    if (emails.size >= 3) break;
+    if (wantEmail) {
+      for (const e of extractEmailsFromHtml(html)) emails.add(e);
+    }
+    if (needWebsitePhone) {
+      for (const p of extractPhonesFromHtml(html)) {
+        const key = phoneDedupeKey(p);
+        if (key && !phones.has(key)) phones.set(key, p);
+      }
+    }
+    const emailDone = !wantEmail || emails.size >= 3;
+    const phoneDone = !needWebsitePhone || phones.size >= 1;
+    if (emailDone && phoneDone) break;
     await randomDelay(100, 300);
   }
 
   const list = [...emails];
   // Prefer non-generic local parts
-  const preferred =
+  const preferredEmail =
     list.find((e) => /^(info|contact|hello|publish|submissions?|editorial|press|rights)@/i.test(e)) ??
     list[0] ??
     null;
+  const preferredPhone = mapsPhone ?? [...phones.values()][0] ?? null;
 
   return {
     ...place,
-    emails: list,
-    email: preferred,
+    ...(wantEmail
+      ? {
+          emails: list.length ? list : place.emails,
+          email: preferredEmail ?? place.email,
+        }
+      : {}),
+    phone: preferredPhone,
     enriched_at: new Date().toISOString(),
   };
 }
@@ -213,13 +321,16 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
   total: number;
   enriched: number;
   withEmail: number;
+  withPhone: number;
   skipped?: boolean;
 }> {
-  if (!isFieldEnabled("email")) {
+  const wantEmail = isFieldEnabled("email");
+  const wantPhone = isFieldEnabled("phone");
+  if (!wantEmail && !wantPhone) {
     console.log(
-      `[enrich] Skipping: fields.email is false in config/scraper.json`,
+      `[enrich] Skipping: set fields.email and/or fields.phone to true in config/scraper.json`,
     );
-    return { total: 0, enriched: 0, withEmail: 0, skipped: true };
+    return { total: 0, enriched: 0, withEmail: 0, withPhone: 0, skipped: true };
   }
 
   const places = loadPlaces(opts.country, opts.categorySlug);
@@ -227,7 +338,7 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
     console.log(
       `[enrich] No places in data/${opts.country}/${opts.categorySlug}/places.jsonl — run scrape first`,
     );
-    return { total: 0, enriched: 0, withEmail: 0 };
+    return { total: 0, enriched: 0, withEmail: 0, withPhone: 0 };
   }
 
   // Mutual exclusion with scrape: exclusive .enrich_lock; refuse if scrape holds
@@ -240,7 +351,7 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
       `[enrich] Enrich lock already held (${enrichLockPath}). ` +
         `Wait for the other enrich to finish or remove the lock to force.`,
     );
-    return { total: places.length, enriched: 0, withEmail: 0 };
+    return { total: places.length, enriched: 0, withEmail: 0, withPhone: 0 };
   }
   if (lockExists(scrapeLockPath)) {
     releaseOwnLock(enrichLockPath);
@@ -248,13 +359,24 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
       `[enrich] Scrape lock present (${scrapeLockPath}) — enrich would race the scrape. ` +
         `Wait for the scrape to finish or remove the lock to force.`,
     );
-    return { total: places.length, enriched: 0, withEmail: 0 };
+    return { total: places.length, enriched: 0, withEmail: 0, withPhone: 0 };
   }
 
-  const needsWork = places.filter((p) => !p.enriched_at);
+  // Fresh places, or phone-enabled places that still lack a number but have a website.
+  const needsWork = places.filter((p) => {
+    if (!p.enriched_at) return true;
+    if (wantPhone && !(p.phone?.trim()) && p.website) return true;
+    return false;
+  });
+  const targets = [
+    wantEmail ? "emails" : null,
+    wantPhone ? "phones" : null,
+  ]
+    .filter(Boolean)
+    .join("+");
   console.log(
     `[enrich] category=${opts.categorySlug} ${places.length} places, ` +
-      `${needsWork.length} need enrichment (concurrency=${opts.concurrency})`,
+      `${needsWork.length} need enrichment (${targets}, concurrency=${opts.concurrency})`,
   );
 
   let done = 0;
@@ -287,8 +409,14 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
       done += 1;
       if (done % CHECKPOINT_EVERY === 0 || done === needsWork.length) {
         checkpointPlaces(opts.country, opts.categorySlug, places, updatedById);
+        const bits = [
+          wantEmail ? `email=${updated.email ?? "-"}` : null,
+          wantPhone ? `phone=${updated.phone ?? "-"}` : null,
+        ]
+          .filter(Boolean)
+          .join(" ");
         console.log(
-          `[enrich] ${done}/${needsWork.length} (emails: ${updated.email ?? "-"} for ${updated.name})`,
+          `[enrich] ${done}/${needsWork.length} (${bits} for ${updated.name})`,
         );
       }
       return updated;
@@ -296,12 +424,25 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
 
     const merged = checkpointPlaces(opts.country, opts.categorySlug, places, updatedById);
     const withEmail = merged.filter((p) => p.email).length;
-    console.log(
-      `[enrich] Done. ${withEmail}/${merged.length} places have email ` +
-        `(${merged.length ? ((withEmail / merged.length) * 100).toFixed(1) : 0}%)`,
-    );
+    const withPhone = merged.filter((p) => p.phone?.trim()).length;
+    const parts = [
+      wantEmail
+        ? `${withEmail}/${merged.length} have email (${merged.length ? ((withEmail / merged.length) * 100).toFixed(1) : 0}%)`
+        : null,
+      wantPhone
+        ? `${withPhone}/${merged.length} have phone (${merged.length ? ((withPhone / merged.length) * 100).toFixed(1) : 0}%)`
+        : null,
+    ]
+      .filter(Boolean)
+      .join("; ");
+    console.log(`[enrich] Done. ${parts}`);
 
-    return { total: merged.length, enriched: needsWork.length, withEmail };
+    return {
+      total: merged.length,
+      enriched: needsWork.length,
+      withEmail,
+      withPhone,
+    };
   } finally {
     process.off("uncaughtException", onUncaught);
     releaseOwnLock(enrichLockPath);

@@ -4,7 +4,7 @@
 
 ---
 
-**One self-hosted Playwright endpoint for Google Maps lead gen — harvest by category, checkpoint to JSONL, enrich emails, and export only the fields you enable.**
+**One self-hosted Playwright endpoint for Google Maps lead gen — harvest by category, checkpoint to JSONL, enrich emails and phones, and export only the fields you enable.**
 
 Discover businesses across states and categories, resume after CAPTCHAs, and skip paid scrape APIs (Monid, Apify, Bright Data, and the rest) — your machine, your data, your pipeline.
 
@@ -36,7 +36,7 @@ Edit `config/scraper.json` → `fields`. Each key is `true` / `false`.
 |-------|---------|--------|
 | `name` | `true` | Business name |
 | `email` | `true` | From website enrich; export keeps rows with email only when this is `true` |
-| `phone` | `false` | From Maps place details |
+| `phone` | `false` | From Maps place details; website enrich fills gaps when enabled |
 | `address` | `false` | From Maps |
 | `website` | `false` | From Maps |
 | `category` | `true` | Harvest category slug |
@@ -49,7 +49,9 @@ Edit `config/scraper.json` → `fields`. Each key is `true` / `false`.
 **Behavior**
 
 - **CSV columns** = only fields set to `true`, in the order above.
-- **Email enrich** (`npm run enrich`) runs only when `fields.email` is `true`; otherwise it skips.
+- **Email enrich** (`npm run enrich`) runs when `fields.email` is `true`; extracts emails from business websites.
+- **Phone enrich** runs in the same pass when `fields.phone` is `true`; keeps the Maps phone when present, otherwise fills from `tel:` links / phone patterns on the site. Skips places that already have a phone.
+- Enrich is a no-op only when **both** `fields.email` and `fields.phone` are `false`.
 - Maps scrape still stores a full place record in `places.jsonl` for resume/debugging; export and docs emphasize the toggled fields.
 
 Example (defaults):
@@ -128,7 +130,7 @@ npm run scrape -- --country us --category marketing-agency --states all
 # Standalone scrape entry (preferred for long runs)
 npx tsx src/geo_harvest.ts --country us --category marketing-agency --states all
 
-# Enrich websites → emails (no-op if fields.email is false)
+# Enrich websites → emails/phones (no-op if both fields.email and fields.phone are false)
 npm run enrich -- --country us --category marketing-agency
 
 # Write leads.csv (enabled fields only)
