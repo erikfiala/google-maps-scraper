@@ -16,8 +16,7 @@
   },
   "dependencies": {
     "cheerio": "^1.1.2",
-    "playwright": "^1.54.2",
-    "zod": "^4.0.14"
+    "playwright": "^1.54.2"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",

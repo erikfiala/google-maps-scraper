@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { chromium, type Browser, type Page } from "playwright";
 import { dataDir, randomDelay } from "./config.js";
@@ -343,6 +343,9 @@ async function scrapeQueryOnTile(
         appendPlace(opts.country, opts.categorySlug, place);
       } else {
         console.log(`[dry-run] ${place.name} | ${place.website ?? "-"} | ${place.phone ?? "-"} | ${place.address ?? "-"}`);
+        // Keep dry-run bounded: cap the in-memory set at maxPlaces so the
+        // `knownIds.size >= opts.maxPlaces` guard works without writing.
+        if (knownIds.size >= opts.maxPlaces) break;
       }
       added += 1;
       // Slower pacing reduces /sorry/ rate-limits on sustained runs
@@ -397,13 +400,8 @@ export async function runScrape(
   }
 
   // File lock so enrichment can pause scrape without racing progress.json writers.
-  const enrichLock = resolve(dataDir(opts.country, opts.categorySlug), ".enrich_lock");
-  if (existsSync(enrichLock)) {
-    console.error(
-      `[maps] Enrich lock present (${enrichLock}). Remove it to resume scraping.`,
-    );
-    return { placeCount: knownIds.size, tilesDone: 0, captcha: true };
-  }
+  // Created by enrich (see enrich.ts); checked here so a concurrent enrich run
+  // does not get its rewritePlaces() output wiped by stale scrape appends.
 
   if (progress.pausedForCaptcha) {
     // Manual hold — do not auto-clear.
@@ -426,6 +424,21 @@ export async function runScrape(
   }
 
   const pending = tiles.filter((t) => !progress.completedTiles.includes(t.id));
+
+  // Mutual exclusion with enrich: scrape writes .scrape_lock for its whole run
+  // and refuses to start while .enrich_lock exists; enrich writes .enrich_lock
+  // and refuses to start while .scrape_lock exists. Prevents checkpointPlaces()
+  // (rewritePlaces) in enrich from wiping appends made by a concurrent scrape.
+  const dataRoot = dataDir(opts.country, opts.categorySlug);
+  const selfLock = resolve(dataRoot, ".scrape_lock");
+  const enrichLock = resolve(dataRoot, ".enrich_lock");
+  if (existsSync(enrichLock)) {
+    console.error(
+      `[maps] Enrich lock present (${enrichLock}). Remove it to resume scraping.`,
+    );
+    return { placeCount: knownIds.size, tilesDone: 0, captcha: true };
+  }
+  if (!opts.dryRun) writeFileSync(selfLock, String(process.pid), "utf8");
   console.log(
     `[maps] category=${opts.categorySlug} queries=[${opts.searchQueries.join(" | ")}] ` +
       `${pending.length} tiles pending (${progress.completedTiles.length} done), ` +
@@ -435,6 +448,19 @@ export async function runScrape(
   let browser: Browser | null = null;
   let tilesDone = 0;
   let captcha = false;
+  let lockRemoved = false;
+
+  const removeLocks = () => {
+    if (lockRemoved) return;
+    lockRemoved = true;
+    for (const f of [selfLock, enrichLock]) {
+      try {
+        if (existsSync(f)) rmSync(f);
+      } catch {
+        // best-effort; stale locks are documented in README
+      }
+    }
+  };
 
   try {
     browser = await chromium.launch({
@@ -495,6 +521,7 @@ export async function runScrape(
     }
   } finally {
     await browser?.close();
+    if (!opts.dryRun) removeLocks();
   }
 
   return { placeCount: knownIds.size, tilesDone, captcha };
