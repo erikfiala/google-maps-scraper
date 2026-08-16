@@ -1,8 +1,20 @@
-# Google Maps scraper
+<div align="center">
 
-Self-hosted Playwright scraper that discovers businesses on Google Maps, checkpoints to JSONL per category, optionally extracts emails and phones from websites, and exports a CSV of the fields you enable.
+# Google Maps Scraper
 
-No Monid, Apify, Bright Data, or other paid scrape APIs.
+---
+
+**One self-hosted Playwright endpoint for Google Maps lead gen — harvest by category, checkpoint to JSONL, enrich emails and phones, and export only the fields you enable.**
+
+Discover businesses across states and categories, resume after CAPTCHAs, and skip paid scrape APIs (Monid, Apify, Bright Data, and the rest) — your machine, your data, your pipeline.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](package.json)
+[![GitHub stars](https://img.shields.io/github/stars/erikfiala/google-maps-scraper?style=social)](https://github.com/erikfiala/google-maps-scraper)
+
+[Quick Start](#quick-start) · [Output Fields](#configuring-output-fields) · [Categories](#configuring-search-categories) · [CLI](#cli-reference) · [Contributing](#contributing)
+
+</div>
 
 ## Quick start
 
