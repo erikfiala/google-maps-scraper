@@ -32,9 +32,15 @@ def load_enabled_categories() -> list[str]:
     return [c["slug"] for c in cats if c.get("enabled")]
 
 
-def email_enrich_enabled() -> bool:
+def enrich_fields_enabled() -> bool:
     cfg = json.loads(CONFIG.read_text())
-    return bool(cfg.get("fields", {}).get("email", True))
+    fields = cfg.get("fields", {})
+    return bool(fields.get("email", True)) or bool(fields.get("phone", False))
+
+
+def field_enabled(name: str, default: bool = False) -> bool:
+    cfg = json.loads(CONFIG.read_text())
+    return bool(cfg.get("fields", {}).get(name, default))
 
 
 def log(msg: str) -> None:
@@ -77,15 +83,26 @@ def tile_count() -> int:
     return _TILE_COUNT
 
 
-def places_stats(slug: str) -> tuple[int, int, int]:
+def places_stats(slug: str) -> tuple[int, int, int, int]:
     path = cat_dir(slug) / "places.jsonl"
     if not path.exists():
-        return 0, 0, 0
+        return 0, 0, 0, 0
     places = [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
     total = len(places)
     emails = sum(1 for p in places if (p.get("email") or "").strip())
-    need = sum(1 for p in places if not p.get("enriched_at"))
-    return total, emails, need
+    phones = sum(1 for p in places if (p.get("phone") or "").strip())
+    want_phone = field_enabled("phone", False)
+    need = sum(
+        1
+        for p in places
+        if (not p.get("enriched_at"))
+        or (
+            want_phone
+            and not (p.get("phone") or "").strip()
+            and (p.get("website") or "").strip()
+        )
+    )
+    return total, emails, phones, need
 
 
 def scrape_done(slug: str) -> bool:
@@ -177,20 +194,23 @@ def scrape_category(slug: str) -> int:
             log(f"[{slug}] scrape exit={ec}; retry in 60s")
             time.sleep(60)
             continue
-        total, _, _ = places_stats(slug)
+        total, _, _, _ = places_stats(slug)
         log(f"[{slug}] scrape exited 0 with {total} places; tiles may be incomplete")
         return 0
 
 
 def enrich_category(slug: str) -> int:
-    if not email_enrich_enabled():
-        log(f"[{slug}] enrich skipped (fields.email=false)")
+    if not enrich_fields_enabled():
+        log(f"[{slug}] enrich skipped (fields.email and fields.phone are false)")
         return 0
     rounds = 0
     while True:
         rounds += 1
-        total, emails, need = places_stats(slug)
-        log(f"[{slug}] enrich round={rounds} places={total} need={need} emails={emails}")
+        total, emails, phones, need = places_stats(slug)
+        log(
+            f"[{slug}] enrich round={rounds} places={total} need={need} "
+            f"emails={emails} phones={phones}"
+        )
         if need == 0:
             return 0
         if rounds > 40:
@@ -211,7 +231,7 @@ def enrich_category(slug: str) -> int:
             ],
             f"{slug}-enrich.log",
         )
-        _, _, need2 = places_stats(slug)
+        _, _, _, need2 = places_stats(slug)
         if need2 == 0:
             return 0
         if need2 >= need:
@@ -236,12 +256,13 @@ def export_category(slug: str) -> dict:
         ],
         f"{slug}-export.log",
     )
-    total, emails, need = places_stats(slug)
+    total, emails, phones, need = places_stats(slug)
     leads = cat_dir(slug) / "leads.csv"
     row = {
         "category": slug,
         "places": total,
         "emails": emails,
+        "phones": phones,
         "unenriched": need,
         "leads_csv": str(leads) if leads.exists() else None,
         "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -249,7 +270,8 @@ def export_category(slug: str) -> dict:
     with SUMMARY.open("a") as f:
         f.write(json.dumps(row) + "\n")
     log(
-        f"[{slug}] DONE places={total} emails={emails} leads={leads} unenriched={need}"
+        f"[{slug}] DONE places={total} emails={emails} phones={phones} "
+        f"leads={leads} unenriched={need}"
     )
     return row
 
@@ -274,7 +296,8 @@ def main() -> int:
     for r in results:
         log(
             f"{r['category']}: places={r['places']} emails={r['emails']} "
-            f"leads={r['leads_csv']} blockers=unenriched:{r['unenriched']}"
+            f"phones={r['phones']} leads={r['leads_csv']} "
+            f"blockers=unenriched:{r['unenriched']}"
         )
     (LOG_DIR / "summary.json").write_text(json.dumps(results, indent=2) + "\n")
     return 0
