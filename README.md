@@ -174,6 +174,35 @@ data/<country>/<category-slug>/
 
 This tool is for educational and legitimate research use. Respect Google’s Terms of Service, applicable laws, and website robots/terms when enriching emails. You are responsible for how you use scraped data (including CAN-SPAM / GDPR / marketing consent). Scraping at scale may trigger rate limits or blocks; be a good citizen.
 
+## Contributing
+
+Contributions are welcome — bug reports, fixes, docs, and small features all help.
+
+1. Fork the repo and create a branch from `main`.
+2. Install deps and Chromium: `npm i && npx playwright install chromium`.
+3. Make your change. Prefer focused PRs over large catch-alls.
+4. Sanity-check locally (TypeScript + a short dry-run when touching scrape/enrich):
+
+```bash
+npx tsc --noEmit
+npm run scrape -- --dry-run
+```
+
+5. Open a pull request against `main` with a short description of the problem and the fix.
+
+**Good fits:** race/data-loss bugs, resume/CAPTCHA edge cases, export/CSV correctness, config/docs clarity, safer defaults, and small CLI UX improvements.
+
+**Please avoid:** scraping paid third-party proxies into the core path, large refactors without a clear win, or changes that ignore Google’s ToS / local laws. Keep secrets and scraped `data/` out of commits (already gitignored).
+
+## Contributors
+
+Thank you to everyone who has contributed to this project:
+
+- [Erik Fiala](https://github.com/erikfiala) — author and maintainer
+- [Avres (@Shinzzyak)](https://github.com/Shinzzyak) — critical enrich/scrape data-loss race fix, dry-run caps, fetch memory limit, and CSV injection hardening ([PR #2](https://github.com/erikfiala/google-maps-scraper/pull/2))
+
+If you have contributed and are missing here, open a PR or ping the maintainer — happy to add you.
+
 ## Support the author
 
 If this helped you:
