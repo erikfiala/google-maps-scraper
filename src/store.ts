@@ -128,8 +128,12 @@ export function saveProgress(
 
 function csvEscape(value: string | null | undefined): string {
   const s = value ?? "";
-  if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
-  return s;
+  // CSV formula injection: spreadsheet apps evaluate cells starting with
+  // = + - @ (or tab/CR) as formulas. Neutralize with a leading apostrophe,
+  // a standard mitigation for exported user-controlled data.
+  const neutralized = /^[=+\-@\t\r]/.test(s) ? `'${s}` : s;
+  if (/[",\n\r]/.test(neutralized)) return `"${neutralized.replace(/"/g, '""')}"`;
+  return neutralized;
 }
 
 function fieldValue(
