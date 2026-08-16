@@ -71,12 +71,11 @@ Same file → `search.categories[]`:
 | `label` | Human label on logs / records |
 | `queries` | Google Maps search phrases (tried in order per geo tile) |
 
-**Defaults shipped**
+**Default shipped**
 
-- **Enabled:** `marketing-agency` — queries `marketing agency`, `advertising agency`
-- **Disabled examples:** `book-publisher` plus writing/audio categories (`writers-association`, `writing-workshop`, `self-publishing-service`, `book-publishing-consultant`, `literary-agency`, `audiobook-production`, `podcast-production`, `narrator-voiceover`)
+- `marketing-agency` — queries `marketing agency`, `advertising agency`
 
-Flip `enabled` to `true` or add your own category objects. Starter example:
+Add more categories by copying objects into `search.categories[]`. Starter example:
 
 ```json
 {
@@ -87,6 +86,24 @@ Flip `enabled` to `true` or add your own category objects. Starter example:
 }
 ```
 
+### Browse all Google Maps categories
+
+A full Places API place-type catalog ships in `config/google_maps_categories.json` (~500 types across Automotive, Services, Food and Drink, Shopping, etc.). Use it to see what you can track, then paste a snippet into `scraper.json`.
+
+```bash
+# List groups + counts
+npm run categories
+
+# Search by name / id / suggested query
+npm run categories -- --search marketing
+npm run categories -- --search dentist --snippet
+
+# Filter by group
+npm run categories -- --group Services --limit 30
+npm run categories -- --group "Food and Drink" --json
+```
+
+`--snippet` prints a ready-to-paste `search.categories[]` entry (`slug`, `label`, `suggestedQueries`).
 ## CLI reference
 
 ```bash
@@ -108,7 +125,7 @@ npm run export -- --country us --category marketing-agency
 # Full pipeline over enabled categories
 python3 scripts/run_category_pipeline.py
 # Or a subset (ignores enabled flags):
-python3 scripts/run_category_pipeline.py marketing-agency book-publisher
+python3 scripts/run_category_pipeline.py marketing-agency
 ```
 
 ### Options
@@ -124,7 +141,9 @@ python3 scripts/run_category_pipeline.py marketing-agency book-publisher
 | `--dry-run` | scrape | off | First tile, 5 places, no writes |
 | `--concurrency` | enrich | `4` | Parallel website fetches |
 | `--timeout` | enrich | `10000` | Per-request timeout (ms) |
-
+| `--search` | categories | — | Substring search over the Maps catalog |
+| `--group` | categories | — | Filter by catalog group |
+| `--snippet` | categories | off | Print paste-ready `scraper.json` category JSON |
 ## Data layout
 
 ```

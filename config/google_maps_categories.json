@@ -1,0 +1,5215 @@
+{
+  "source": "Google Places API Place Types (New)",
+  "sourceUrl": "https://developers.google.com/maps/documentation/places/web-service/place-types",
+  "updated": "2026-08-16",
+  "description": "Full Google Maps / Places category catalog for discovering what you can track. Copy a slug + suggestedQueries into config/scraper.json search.categories[] to scrape that niche.",
+  "count": 514,
+  "groups": [
+    "Automotive",
+    "Business",
+    "Culture",
+    "Education",
+    "Entertainment and Recreation",
+    "Facilities",
+    "Finance",
+    "Food and Drink",
+    "Geographical Areas",
+    "Government",
+    "Health and Wellness",
+    "Housing",
+    "Lodging",
+    "Natural Features",
+    "Places of Worship",
+    "Services",
+    "Shopping",
+    "Sports",
+    "Transportation",
+    "Additional (Table B)"
+  ],
+  "categories": [
+    {
+      "id": "car_dealer",
+      "label": "Car Dealer",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "car-dealer",
+      "suggestedQueries": [
+        "car dealer"
+      ]
+    },
+    {
+      "id": "car_rental",
+      "label": "Car Rental",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "car-rental",
+      "suggestedQueries": [
+        "car rental"
+      ]
+    },
+    {
+      "id": "car_repair",
+      "label": "Car Repair",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "car-repair",
+      "suggestedQueries": [
+        "auto repair",
+        "car repair"
+      ]
+    },
+    {
+      "id": "car_wash",
+      "label": "Car Wash",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "car-wash",
+      "suggestedQueries": [
+        "car wash"
+      ]
+    },
+    {
+      "id": "ebike_charging_station",
+      "label": "Ebike Charging Station",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "ebike-charging-station",
+      "suggestedQueries": [
+        "ebike charging station"
+      ]
+    },
+    {
+      "id": "electric_vehicle_charging_station",
+      "label": "Electric Vehicle Charging Station",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "electric-vehicle-charging-station",
+      "suggestedQueries": [
+        "electric vehicle charging station"
+      ]
+    },
+    {
+      "id": "gas_station",
+      "label": "Gas Station",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "gas-station",
+      "suggestedQueries": [
+        "gas station"
+      ]
+    },
+    {
+      "id": "parking",
+      "label": "Parking",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "parking",
+      "suggestedQueries": [
+        "parking"
+      ]
+    },
+    {
+      "id": "parking_garage",
+      "label": "Parking Garage",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "parking-garage",
+      "suggestedQueries": [
+        "parking garage"
+      ]
+    },
+    {
+      "id": "parking_lot",
+      "label": "Parking Lot",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "parking-lot",
+      "suggestedQueries": [
+        "parking lot"
+      ]
+    },
+    {
+      "id": "rest_stop",
+      "label": "Rest Stop",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "rest-stop",
+      "suggestedQueries": [
+        "rest stop"
+      ]
+    },
+    {
+      "id": "tire_shop",
+      "label": "Tire Shop",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "tire-shop",
+      "suggestedQueries": [
+        "tire shop"
+      ]
+    },
+    {
+      "id": "truck_dealer",
+      "label": "Truck Dealer",
+      "group": "Automotive",
+      "table": "A",
+      "slug": "truck-dealer",
+      "suggestedQueries": [
+        "truck dealer"
+      ]
+    },
+    {
+      "id": "business_center",
+      "label": "Business Center",
+      "group": "Business",
+      "table": "A",
+      "slug": "business-center",
+      "suggestedQueries": [
+        "business center"
+      ]
+    },
+    {
+      "id": "corporate_office",
+      "label": "Corporate Office",
+      "group": "Business",
+      "table": "A",
+      "slug": "corporate-office",
+      "suggestedQueries": [
+        "corporate office"
+      ]
+    },
+    {
+      "id": "coworking_space",
+      "label": "Coworking Space",
+      "group": "Business",
+      "table": "A",
+      "slug": "coworking-space",
+      "suggestedQueries": [
+        "coworking space"
+      ]
+    },
+    {
+      "id": "farm",
+      "label": "Farm",
+      "group": "Business",
+      "table": "A",
+      "slug": "farm",
+      "suggestedQueries": [
+        "farm"
+      ]
+    },
+    {
+      "id": "manufacturer",
+      "label": "Manufacturer",
+      "group": "Business",
+      "table": "A",
+      "slug": "manufacturer",
+      "suggestedQueries": [
+        "manufacturer"
+      ]
+    },
+    {
+      "id": "ranch",
+      "label": "Ranch",
+      "group": "Business",
+      "table": "A",
+      "slug": "ranch",
+      "suggestedQueries": [
+        "ranch"
+      ]
+    },
+    {
+      "id": "supplier",
+      "label": "Supplier",
+      "group": "Business",
+      "table": "A",
+      "slug": "supplier",
+      "suggestedQueries": [
+        "supplier"
+      ]
+    },
+    {
+      "id": "television_studio",
+      "label": "Television Studio",
+      "group": "Business",
+      "table": "A",
+      "slug": "television-studio",
+      "suggestedQueries": [
+        "television studio"
+      ]
+    },
+    {
+      "id": "art_gallery",
+      "label": "Art Gallery",
+      "group": "Culture",
+      "table": "A",
+      "slug": "art-gallery",
+      "suggestedQueries": [
+        "art gallery"
+      ]
+    },
+    {
+      "id": "art_museum",
+      "label": "Art Museum",
+      "group": "Culture",
+      "table": "A",
+      "slug": "art-museum",
+      "suggestedQueries": [
+        "art museum"
+      ]
+    },
+    {
+      "id": "art_studio",
+      "label": "Art Studio",
+      "group": "Culture",
+      "table": "A",
+      "slug": "art-studio",
+      "suggestedQueries": [
+        "art studio"
+      ]
+    },
+    {
+      "id": "auditorium",
+      "label": "Auditorium",
+      "group": "Culture",
+      "table": "A",
+      "slug": "auditorium",
+      "suggestedQueries": [
+        "auditorium"
+      ]
+    },
+    {
+      "id": "castle",
+      "label": "Castle",
+      "group": "Culture",
+      "table": "A",
+      "slug": "castle",
+      "suggestedQueries": [
+        "castle"
+      ]
+    },
+    {
+      "id": "cultural_landmark",
+      "label": "Cultural Landmark",
+      "group": "Culture",
+      "table": "A",
+      "slug": "cultural-landmark",
+      "suggestedQueries": [
+        "cultural landmark"
+      ]
+    },
+    {
+      "id": "fountain",
+      "label": "Fountain",
+      "group": "Culture",
+      "table": "A",
+      "slug": "fountain",
+      "suggestedQueries": [
+        "fountain"
+      ]
+    },
+    {
+      "id": "historical_place",
+      "label": "Historical Place",
+      "group": "Culture",
+      "table": "A",
+      "slug": "historical-place",
+      "suggestedQueries": [
+        "historical place"
+      ]
+    },
+    {
+      "id": "history_museum",
+      "label": "History Museum",
+      "group": "Culture",
+      "table": "A",
+      "slug": "history-museum",
+      "suggestedQueries": [
+        "history museum"
+      ]
+    },
+    {
+      "id": "monument",
+      "label": "Monument",
+      "group": "Culture",
+      "table": "A",
+      "slug": "monument",
+      "suggestedQueries": [
+        "monument"
+      ]
+    },
+    {
+      "id": "museum",
+      "label": "Museum",
+      "group": "Culture",
+      "table": "A",
+      "slug": "museum",
+      "suggestedQueries": [
+        "museum"
+      ]
+    },
+    {
+      "id": "performing_arts_theater",
+      "label": "Performing Arts Theater",
+      "group": "Culture",
+      "table": "A",
+      "slug": "performing-arts-theater",
+      "suggestedQueries": [
+        "performing arts theater"
+      ]
+    },
+    {
+      "id": "sculpture",
+      "label": "Sculpture",
+      "group": "Culture",
+      "table": "A",
+      "slug": "sculpture",
+      "suggestedQueries": [
+        "sculpture"
+      ]
+    },
+    {
+      "id": "academic_department",
+      "label": "Academic Department",
+      "group": "Education",
+      "table": "A",
+      "slug": "academic-department",
+      "suggestedQueries": [
+        "academic department"
+      ]
+    },
+    {
+      "id": "educational_institution",
+      "label": "Educational Institution",
+      "group": "Education",
+      "table": "A",
+      "slug": "educational-institution",
+      "suggestedQueries": [
+        "educational institution"
+      ]
+    },
+    {
+      "id": "library",
+      "label": "Library",
+      "group": "Education",
+      "table": "A",
+      "slug": "library",
+      "suggestedQueries": [
+        "library"
+      ]
+    },
+    {
+      "id": "preschool",
+      "label": "Preschool",
+      "group": "Education",
+      "table": "A",
+      "slug": "preschool",
+      "suggestedQueries": [
+        "preschool"
+      ]
+    },
+    {
+      "id": "primary_school",
+      "label": "Primary School",
+      "group": "Education",
+      "table": "A",
+      "slug": "primary-school",
+      "suggestedQueries": [
+        "primary school"
+      ]
+    },
+    {
+      "id": "research_institute",
+      "label": "Research Institute",
+      "group": "Education",
+      "table": "A",
+      "slug": "research-institute",
+      "suggestedQueries": [
+        "research institute"
+      ]
+    },
+    {
+      "id": "school",
+      "label": "School",
+      "group": "Education",
+      "table": "A",
+      "slug": "school",
+      "suggestedQueries": [
+        "school"
+      ]
+    },
+    {
+      "id": "secondary_school",
+      "label": "Secondary School",
+      "group": "Education",
+      "table": "A",
+      "slug": "secondary-school",
+      "suggestedQueries": [
+        "secondary school"
+      ]
+    },
+    {
+      "id": "university",
+      "label": "University",
+      "group": "Education",
+      "table": "A",
+      "slug": "university",
+      "suggestedQueries": [
+        "university"
+      ]
+    },
+    {
+      "id": "adventure_sports_center",
+      "label": "Adventure Sports Center",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "adventure-sports-center",
+      "suggestedQueries": [
+        "adventure sports center"
+      ]
+    },
+    {
+      "id": "amphitheatre",
+      "label": "Amphitheatre",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "amphitheatre",
+      "suggestedQueries": [
+        "amphitheatre"
+      ]
+    },
+    {
+      "id": "amusement_center",
+      "label": "Amusement Center",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "amusement-center",
+      "suggestedQueries": [
+        "amusement center"
+      ]
+    },
+    {
+      "id": "amusement_park",
+      "label": "Amusement Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "amusement-park",
+      "suggestedQueries": [
+        "amusement park"
+      ]
+    },
+    {
+      "id": "aquarium",
+      "label": "Aquarium",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "aquarium",
+      "suggestedQueries": [
+        "aquarium"
+      ]
+    },
+    {
+      "id": "banquet_hall",
+      "label": "Banquet Hall",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "banquet-hall",
+      "suggestedQueries": [
+        "banquet hall"
+      ]
+    },
+    {
+      "id": "barbecue_area",
+      "label": "Barbecue Area",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "barbecue-area",
+      "suggestedQueries": [
+        "barbecue area"
+      ]
+    },
+    {
+      "id": "botanical_garden",
+      "label": "Botanical Garden",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "botanical-garden",
+      "suggestedQueries": [
+        "botanical garden"
+      ]
+    },
+    {
+      "id": "bowling_alley",
+      "label": "Bowling Alley",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "bowling-alley",
+      "suggestedQueries": [
+        "bowling alley"
+      ]
+    },
+    {
+      "id": "casino",
+      "label": "Casino",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "casino",
+      "suggestedQueries": [
+        "casino"
+      ]
+    },
+    {
+      "id": "childrens_camp",
+      "label": "Childrens Camp",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "childrens-camp",
+      "suggestedQueries": [
+        "childrens camp"
+      ]
+    },
+    {
+      "id": "city_park",
+      "label": "City Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "city-park",
+      "suggestedQueries": [
+        "city park"
+      ]
+    },
+    {
+      "id": "comedy_club",
+      "label": "Comedy Club",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "comedy-club",
+      "suggestedQueries": [
+        "comedy club"
+      ]
+    },
+    {
+      "id": "community_center",
+      "label": "Community Center",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "community-center",
+      "suggestedQueries": [
+        "community center"
+      ]
+    },
+    {
+      "id": "concert_hall",
+      "label": "Concert Hall",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "concert-hall",
+      "suggestedQueries": [
+        "concert hall"
+      ]
+    },
+    {
+      "id": "convention_center",
+      "label": "Convention Center",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "convention-center",
+      "suggestedQueries": [
+        "convention center"
+      ]
+    },
+    {
+      "id": "cultural_center",
+      "label": "Cultural Center",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "cultural-center",
+      "suggestedQueries": [
+        "cultural center"
+      ]
+    },
+    {
+      "id": "cycling_park",
+      "label": "Cycling Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "cycling-park",
+      "suggestedQueries": [
+        "cycling park"
+      ]
+    },
+    {
+      "id": "dance_hall",
+      "label": "Dance Hall",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "dance-hall",
+      "suggestedQueries": [
+        "dance hall"
+      ]
+    },
+    {
+      "id": "dog_park",
+      "label": "Dog Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "dog-park",
+      "suggestedQueries": [
+        "dog park"
+      ]
+    },
+    {
+      "id": "event_venue",
+      "label": "Event Venue",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "event-venue",
+      "suggestedQueries": [
+        "event venue"
+      ]
+    },
+    {
+      "id": "ferris_wheel",
+      "label": "Ferris Wheel",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "ferris-wheel",
+      "suggestedQueries": [
+        "ferris wheel"
+      ]
+    },
+    {
+      "id": "garden",
+      "label": "Garden",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "garden",
+      "suggestedQueries": [
+        "garden"
+      ]
+    },
+    {
+      "id": "go_karting_venue",
+      "label": "Go Karting Venue",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "go-karting-venue",
+      "suggestedQueries": [
+        "go karting venue"
+      ]
+    },
+    {
+      "id": "hiking_area",
+      "label": "Hiking Area",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "hiking-area",
+      "suggestedQueries": [
+        "hiking area"
+      ]
+    },
+    {
+      "id": "historical_landmark",
+      "label": "Historical Landmark",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "historical-landmark",
+      "suggestedQueries": [
+        "historical landmark"
+      ]
+    },
+    {
+      "id": "indoor_playground",
+      "label": "Indoor Playground",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "indoor-playground",
+      "suggestedQueries": [
+        "indoor playground"
+      ]
+    },
+    {
+      "id": "internet_cafe",
+      "label": "Internet Cafe",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "internet-cafe",
+      "suggestedQueries": [
+        "internet cafe"
+      ]
+    },
+    {
+      "id": "karaoke",
+      "label": "Karaoke",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "karaoke",
+      "suggestedQueries": [
+        "karaoke"
+      ]
+    },
+    {
+      "id": "live_music_venue",
+      "label": "Live Music Venue",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "live-music-venue",
+      "suggestedQueries": [
+        "live music venue"
+      ]
+    },
+    {
+      "id": "marina",
+      "label": "Marina",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "marina",
+      "suggestedQueries": [
+        "marina"
+      ]
+    },
+    {
+      "id": "miniature_golf_course",
+      "label": "Miniature Golf Course",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "miniature-golf-course",
+      "suggestedQueries": [
+        "miniature golf course"
+      ]
+    },
+    {
+      "id": "movie_rental",
+      "label": "Movie Rental",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "movie-rental",
+      "suggestedQueries": [
+        "movie rental"
+      ]
+    },
+    {
+      "id": "movie_theater",
+      "label": "Movie Theater",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "movie-theater",
+      "suggestedQueries": [
+        "movie theater"
+      ]
+    },
+    {
+      "id": "national_park",
+      "label": "National Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "national-park",
+      "suggestedQueries": [
+        "national park"
+      ]
+    },
+    {
+      "id": "night_club",
+      "label": "Night Club",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "night-club",
+      "suggestedQueries": [
+        "night club"
+      ]
+    },
+    {
+      "id": "observation_deck",
+      "label": "Observation Deck",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "observation-deck",
+      "suggestedQueries": [
+        "observation deck"
+      ]
+    },
+    {
+      "id": "off_roading_area",
+      "label": "Off Roading Area",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "off-roading-area",
+      "suggestedQueries": [
+        "off roading area"
+      ]
+    },
+    {
+      "id": "opera_house",
+      "label": "Opera House",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "opera-house",
+      "suggestedQueries": [
+        "opera house"
+      ]
+    },
+    {
+      "id": "paintball_center",
+      "label": "Paintball Center",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "paintball-center",
+      "suggestedQueries": [
+        "paintball center"
+      ]
+    },
+    {
+      "id": "park",
+      "label": "Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "park",
+      "suggestedQueries": [
+        "park"
+      ]
+    },
+    {
+      "id": "philharmonic_hall",
+      "label": "Philharmonic Hall",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "philharmonic-hall",
+      "suggestedQueries": [
+        "philharmonic hall"
+      ]
+    },
+    {
+      "id": "picnic_ground",
+      "label": "Picnic Ground",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "picnic-ground",
+      "suggestedQueries": [
+        "picnic ground"
+      ]
+    },
+    {
+      "id": "planetarium",
+      "label": "Planetarium",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "planetarium",
+      "suggestedQueries": [
+        "planetarium"
+      ]
+    },
+    {
+      "id": "plaza",
+      "label": "Plaza",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "plaza",
+      "suggestedQueries": [
+        "plaza"
+      ]
+    },
+    {
+      "id": "roller_coaster",
+      "label": "Roller Coaster",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "roller-coaster",
+      "suggestedQueries": [
+        "roller coaster"
+      ]
+    },
+    {
+      "id": "skateboard_park",
+      "label": "Skateboard Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "skateboard-park",
+      "suggestedQueries": [
+        "skateboard park"
+      ]
+    },
+    {
+      "id": "state_park",
+      "label": "State Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "state-park",
+      "suggestedQueries": [
+        "state park"
+      ]
+    },
+    {
+      "id": "tourist_attraction",
+      "label": "Tourist Attraction",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "tourist-attraction",
+      "suggestedQueries": [
+        "tourist attraction"
+      ]
+    },
+    {
+      "id": "video_arcade",
+      "label": "Video Arcade",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "video-arcade",
+      "suggestedQueries": [
+        "video arcade"
+      ]
+    },
+    {
+      "id": "vineyard",
+      "label": "Vineyard",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "vineyard",
+      "suggestedQueries": [
+        "vineyard"
+      ]
+    },
+    {
+      "id": "visitor_center",
+      "label": "Visitor Center",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "visitor-center",
+      "suggestedQueries": [
+        "visitor center"
+      ]
+    },
+    {
+      "id": "water_park",
+      "label": "Water Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "water-park",
+      "suggestedQueries": [
+        "water park"
+      ]
+    },
+    {
+      "id": "wedding_venue",
+      "label": "Wedding Venue",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "wedding-venue",
+      "suggestedQueries": [
+        "wedding venue"
+      ]
+    },
+    {
+      "id": "wildlife_park",
+      "label": "Wildlife Park",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "wildlife-park",
+      "suggestedQueries": [
+        "wildlife park"
+      ]
+    },
+    {
+      "id": "wildlife_refuge",
+      "label": "Wildlife Refuge",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "wildlife-refuge",
+      "suggestedQueries": [
+        "wildlife refuge"
+      ]
+    },
+    {
+      "id": "zoo",
+      "label": "Zoo",
+      "group": "Entertainment and Recreation",
+      "table": "A",
+      "slug": "zoo",
+      "suggestedQueries": [
+        "zoo"
+      ]
+    },
+    {
+      "id": "public_bath",
+      "label": "Public Bath",
+      "group": "Facilities",
+      "table": "A",
+      "slug": "public-bath",
+      "suggestedQueries": [
+        "public bath"
+      ]
+    },
+    {
+      "id": "public_bathroom",
+      "label": "Public Bathroom",
+      "group": "Facilities",
+      "table": "A",
+      "slug": "public-bathroom",
+      "suggestedQueries": [
+        "public bathroom"
+      ]
+    },
+    {
+      "id": "stable",
+      "label": "Stable",
+      "group": "Facilities",
+      "table": "A",
+      "slug": "stable",
+      "suggestedQueries": [
+        "stable"
+      ]
+    },
+    {
+      "id": "accounting",
+      "label": "Accounting",
+      "group": "Finance",
+      "table": "A",
+      "slug": "accounting",
+      "suggestedQueries": [
+        "accounting"
+      ]
+    },
+    {
+      "id": "atm",
+      "label": "Atm",
+      "group": "Finance",
+      "table": "A",
+      "slug": "atm",
+      "suggestedQueries": [
+        "atm"
+      ]
+    },
+    {
+      "id": "bank",
+      "label": "Bank",
+      "group": "Finance",
+      "table": "A",
+      "slug": "bank",
+      "suggestedQueries": [
+        "bank"
+      ]
+    },
+    {
+      "id": "acai_shop",
+      "label": "Acai Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "acai-shop",
+      "suggestedQueries": [
+        "acai shop"
+      ]
+    },
+    {
+      "id": "afghani_restaurant",
+      "label": "Afghani Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "afghani-restaurant",
+      "suggestedQueries": [
+        "afghani restaurant"
+      ]
+    },
+    {
+      "id": "african_restaurant",
+      "label": "African Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "african-restaurant",
+      "suggestedQueries": [
+        "african restaurant"
+      ]
+    },
+    {
+      "id": "american_restaurant",
+      "label": "American Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "american-restaurant",
+      "suggestedQueries": [
+        "american restaurant"
+      ]
+    },
+    {
+      "id": "argentinian_restaurant",
+      "label": "Argentinian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "argentinian-restaurant",
+      "suggestedQueries": [
+        "argentinian restaurant"
+      ]
+    },
+    {
+      "id": "asian_fusion_restaurant",
+      "label": "Asian Fusion Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "asian-fusion-restaurant",
+      "suggestedQueries": [
+        "asian fusion restaurant"
+      ]
+    },
+    {
+      "id": "asian_restaurant",
+      "label": "Asian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "asian-restaurant",
+      "suggestedQueries": [
+        "asian restaurant"
+      ]
+    },
+    {
+      "id": "australian_restaurant",
+      "label": "Australian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "australian-restaurant",
+      "suggestedQueries": [
+        "australian restaurant"
+      ]
+    },
+    {
+      "id": "austrian_restaurant",
+      "label": "Austrian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "austrian-restaurant",
+      "suggestedQueries": [
+        "austrian restaurant"
+      ]
+    },
+    {
+      "id": "bagel_shop",
+      "label": "Bagel Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "bagel-shop",
+      "suggestedQueries": [
+        "bagel shop"
+      ]
+    },
+    {
+      "id": "bakery",
+      "label": "Bakery",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "bakery",
+      "suggestedQueries": [
+        "bakery"
+      ]
+    },
+    {
+      "id": "bangladeshi_restaurant",
+      "label": "Bangladeshi Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "bangladeshi-restaurant",
+      "suggestedQueries": [
+        "bangladeshi restaurant"
+      ]
+    },
+    {
+      "id": "bar",
+      "label": "Bar",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "bar",
+      "suggestedQueries": [
+        "bar"
+      ]
+    },
+    {
+      "id": "bar_and_grill",
+      "label": "Bar And Grill",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "bar-and-grill",
+      "suggestedQueries": [
+        "bar and grill"
+      ]
+    },
+    {
+      "id": "barbecue_restaurant",
+      "label": "Barbecue Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "barbecue-restaurant",
+      "suggestedQueries": [
+        "barbecue restaurant"
+      ]
+    },
+    {
+      "id": "basque_restaurant",
+      "label": "Basque Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "basque-restaurant",
+      "suggestedQueries": [
+        "basque restaurant"
+      ]
+    },
+    {
+      "id": "bavarian_restaurant",
+      "label": "Bavarian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "bavarian-restaurant",
+      "suggestedQueries": [
+        "bavarian restaurant"
+      ]
+    },
+    {
+      "id": "beer_garden",
+      "label": "Beer Garden",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "beer-garden",
+      "suggestedQueries": [
+        "beer garden"
+      ]
+    },
+    {
+      "id": "belgian_restaurant",
+      "label": "Belgian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "belgian-restaurant",
+      "suggestedQueries": [
+        "belgian restaurant"
+      ]
+    },
+    {
+      "id": "bistro",
+      "label": "Bistro",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "bistro",
+      "suggestedQueries": [
+        "bistro"
+      ]
+    },
+    {
+      "id": "brazilian_restaurant",
+      "label": "Brazilian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "brazilian-restaurant",
+      "suggestedQueries": [
+        "brazilian restaurant"
+      ]
+    },
+    {
+      "id": "breakfast_restaurant",
+      "label": "Breakfast Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "breakfast-restaurant",
+      "suggestedQueries": [
+        "breakfast restaurant"
+      ]
+    },
+    {
+      "id": "brewery",
+      "label": "Brewery",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "brewery",
+      "suggestedQueries": [
+        "brewery"
+      ]
+    },
+    {
+      "id": "brewpub",
+      "label": "Brewpub",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "brewpub",
+      "suggestedQueries": [
+        "brewpub"
+      ]
+    },
+    {
+      "id": "british_restaurant",
+      "label": "British Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "british-restaurant",
+      "suggestedQueries": [
+        "british restaurant"
+      ]
+    },
+    {
+      "id": "brunch_restaurant",
+      "label": "Brunch Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "brunch-restaurant",
+      "suggestedQueries": [
+        "brunch restaurant"
+      ]
+    },
+    {
+      "id": "buffet_restaurant",
+      "label": "Buffet Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "buffet-restaurant",
+      "suggestedQueries": [
+        "buffet restaurant"
+      ]
+    },
+    {
+      "id": "burmese_restaurant",
+      "label": "Burmese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "burmese-restaurant",
+      "suggestedQueries": [
+        "burmese restaurant"
+      ]
+    },
+    {
+      "id": "burrito_restaurant",
+      "label": "Burrito Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "burrito-restaurant",
+      "suggestedQueries": [
+        "burrito restaurant"
+      ]
+    },
+    {
+      "id": "cafe",
+      "label": "Cafe",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cafe",
+      "suggestedQueries": [
+        "cafe"
+      ]
+    },
+    {
+      "id": "cafeteria",
+      "label": "Cafeteria",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cafeteria",
+      "suggestedQueries": [
+        "cafeteria"
+      ]
+    },
+    {
+      "id": "cajun_restaurant",
+      "label": "Cajun Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cajun-restaurant",
+      "suggestedQueries": [
+        "cajun restaurant"
+      ]
+    },
+    {
+      "id": "cake_shop",
+      "label": "Cake Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cake-shop",
+      "suggestedQueries": [
+        "cake shop"
+      ]
+    },
+    {
+      "id": "californian_restaurant",
+      "label": "Californian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "californian-restaurant",
+      "suggestedQueries": [
+        "californian restaurant"
+      ]
+    },
+    {
+      "id": "cambodian_restaurant",
+      "label": "Cambodian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cambodian-restaurant",
+      "suggestedQueries": [
+        "cambodian restaurant"
+      ]
+    },
+    {
+      "id": "candy_store",
+      "label": "Candy Store",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "candy-store",
+      "suggestedQueries": [
+        "candy store"
+      ]
+    },
+    {
+      "id": "cantonese_restaurant",
+      "label": "Cantonese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cantonese-restaurant",
+      "suggestedQueries": [
+        "cantonese restaurant"
+      ]
+    },
+    {
+      "id": "caribbean_restaurant",
+      "label": "Caribbean Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "caribbean-restaurant",
+      "suggestedQueries": [
+        "caribbean restaurant"
+      ]
+    },
+    {
+      "id": "cat_cafe",
+      "label": "Cat Cafe",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cat-cafe",
+      "suggestedQueries": [
+        "cat cafe"
+      ]
+    },
+    {
+      "id": "chicken_restaurant",
+      "label": "Chicken Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "chicken-restaurant",
+      "suggestedQueries": [
+        "chicken restaurant"
+      ]
+    },
+    {
+      "id": "chicken_wings_restaurant",
+      "label": "Chicken Wings Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "chicken-wings-restaurant",
+      "suggestedQueries": [
+        "chicken wings restaurant"
+      ]
+    },
+    {
+      "id": "chilean_restaurant",
+      "label": "Chilean Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "chilean-restaurant",
+      "suggestedQueries": [
+        "chilean restaurant"
+      ]
+    },
+    {
+      "id": "chinese_noodle_restaurant",
+      "label": "Chinese Noodle Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "chinese-noodle-restaurant",
+      "suggestedQueries": [
+        "chinese noodle restaurant"
+      ]
+    },
+    {
+      "id": "chinese_restaurant",
+      "label": "Chinese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "chinese-restaurant",
+      "suggestedQueries": [
+        "chinese restaurant"
+      ]
+    },
+    {
+      "id": "chocolate_factory",
+      "label": "Chocolate Factory",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "chocolate-factory",
+      "suggestedQueries": [
+        "chocolate factory"
+      ]
+    },
+    {
+      "id": "chocolate_shop",
+      "label": "Chocolate Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "chocolate-shop",
+      "suggestedQueries": [
+        "chocolate shop"
+      ]
+    },
+    {
+      "id": "cocktail_bar",
+      "label": "Cocktail Bar",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cocktail-bar",
+      "suggestedQueries": [
+        "cocktail bar"
+      ]
+    },
+    {
+      "id": "coffee_roastery",
+      "label": "Coffee Roastery",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "coffee-roastery",
+      "suggestedQueries": [
+        "coffee roastery"
+      ]
+    },
+    {
+      "id": "coffee_shop",
+      "label": "Coffee Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "coffee-shop",
+      "suggestedQueries": [
+        "coffee shop"
+      ]
+    },
+    {
+      "id": "coffee_stand",
+      "label": "Coffee Stand",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "coffee-stand",
+      "suggestedQueries": [
+        "coffee stand"
+      ]
+    },
+    {
+      "id": "colombian_restaurant",
+      "label": "Colombian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "colombian-restaurant",
+      "suggestedQueries": [
+        "colombian restaurant"
+      ]
+    },
+    {
+      "id": "confectionery",
+      "label": "Confectionery",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "confectionery",
+      "suggestedQueries": [
+        "confectionery"
+      ]
+    },
+    {
+      "id": "croatian_restaurant",
+      "label": "Croatian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "croatian-restaurant",
+      "suggestedQueries": [
+        "croatian restaurant"
+      ]
+    },
+    {
+      "id": "cuban_restaurant",
+      "label": "Cuban Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "cuban-restaurant",
+      "suggestedQueries": [
+        "cuban restaurant"
+      ]
+    },
+    {
+      "id": "czech_restaurant",
+      "label": "Czech Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "czech-restaurant",
+      "suggestedQueries": [
+        "czech restaurant"
+      ]
+    },
+    {
+      "id": "danish_restaurant",
+      "label": "Danish Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "danish-restaurant",
+      "suggestedQueries": [
+        "danish restaurant"
+      ]
+    },
+    {
+      "id": "deli",
+      "label": "Deli",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "deli",
+      "suggestedQueries": [
+        "deli"
+      ]
+    },
+    {
+      "id": "dessert_restaurant",
+      "label": "Dessert Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "dessert-restaurant",
+      "suggestedQueries": [
+        "dessert restaurant"
+      ]
+    },
+    {
+      "id": "dessert_shop",
+      "label": "Dessert Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "dessert-shop",
+      "suggestedQueries": [
+        "dessert shop"
+      ]
+    },
+    {
+      "id": "dim_sum_restaurant",
+      "label": "Dim Sum Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "dim-sum-restaurant",
+      "suggestedQueries": [
+        "dim sum restaurant"
+      ]
+    },
+    {
+      "id": "diner",
+      "label": "Diner",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "diner",
+      "suggestedQueries": [
+        "diner"
+      ]
+    },
+    {
+      "id": "dog_cafe",
+      "label": "Dog Cafe",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "dog-cafe",
+      "suggestedQueries": [
+        "dog cafe"
+      ]
+    },
+    {
+      "id": "donut_shop",
+      "label": "Donut Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "donut-shop",
+      "suggestedQueries": [
+        "donut shop"
+      ]
+    },
+    {
+      "id": "dumpling_restaurant",
+      "label": "Dumpling Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "dumpling-restaurant",
+      "suggestedQueries": [
+        "dumpling restaurant"
+      ]
+    },
+    {
+      "id": "dutch_restaurant",
+      "label": "Dutch Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "dutch-restaurant",
+      "suggestedQueries": [
+        "dutch restaurant"
+      ]
+    },
+    {
+      "id": "eastern_european_restaurant",
+      "label": "Eastern European Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "eastern-european-restaurant",
+      "suggestedQueries": [
+        "eastern european restaurant"
+      ]
+    },
+    {
+      "id": "ethiopian_restaurant",
+      "label": "Ethiopian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "ethiopian-restaurant",
+      "suggestedQueries": [
+        "ethiopian restaurant"
+      ]
+    },
+    {
+      "id": "european_restaurant",
+      "label": "European Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "european-restaurant",
+      "suggestedQueries": [
+        "european restaurant"
+      ]
+    },
+    {
+      "id": "falafel_restaurant",
+      "label": "Falafel Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "falafel-restaurant",
+      "suggestedQueries": [
+        "falafel restaurant"
+      ]
+    },
+    {
+      "id": "family_restaurant",
+      "label": "Family Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "family-restaurant",
+      "suggestedQueries": [
+        "family restaurant"
+      ]
+    },
+    {
+      "id": "fast_food_restaurant",
+      "label": "Fast Food Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "fast-food-restaurant",
+      "suggestedQueries": [
+        "fast food restaurant"
+      ]
+    },
+    {
+      "id": "filipino_restaurant",
+      "label": "Filipino Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "filipino-restaurant",
+      "suggestedQueries": [
+        "filipino restaurant"
+      ]
+    },
+    {
+      "id": "fine_dining_restaurant",
+      "label": "Fine Dining Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "fine-dining-restaurant",
+      "suggestedQueries": [
+        "fine dining restaurant"
+      ]
+    },
+    {
+      "id": "fish_and_chips_restaurant",
+      "label": "Fish And Chips Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "fish-and-chips-restaurant",
+      "suggestedQueries": [
+        "fish and chips restaurant"
+      ]
+    },
+    {
+      "id": "fondue_restaurant",
+      "label": "Fondue Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "fondue-restaurant",
+      "suggestedQueries": [
+        "fondue restaurant"
+      ]
+    },
+    {
+      "id": "food_court",
+      "label": "Food Court",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "food-court",
+      "suggestedQueries": [
+        "food court"
+      ]
+    },
+    {
+      "id": "french_restaurant",
+      "label": "French Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "french-restaurant",
+      "suggestedQueries": [
+        "french restaurant"
+      ]
+    },
+    {
+      "id": "fusion_restaurant",
+      "label": "Fusion Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "fusion-restaurant",
+      "suggestedQueries": [
+        "fusion restaurant"
+      ]
+    },
+    {
+      "id": "gastropub",
+      "label": "Gastropub",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "gastropub",
+      "suggestedQueries": [
+        "gastropub"
+      ]
+    },
+    {
+      "id": "german_restaurant",
+      "label": "German Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "german-restaurant",
+      "suggestedQueries": [
+        "german restaurant"
+      ]
+    },
+    {
+      "id": "greek_restaurant",
+      "label": "Greek Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "greek-restaurant",
+      "suggestedQueries": [
+        "greek restaurant"
+      ]
+    },
+    {
+      "id": "gyro_restaurant",
+      "label": "Gyro Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "gyro-restaurant",
+      "suggestedQueries": [
+        "gyro restaurant"
+      ]
+    },
+    {
+      "id": "halal_restaurant",
+      "label": "Halal Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "halal-restaurant",
+      "suggestedQueries": [
+        "halal restaurant"
+      ]
+    },
+    {
+      "id": "hamburger_restaurant",
+      "label": "Hamburger Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "hamburger-restaurant",
+      "suggestedQueries": [
+        "hamburger restaurant"
+      ]
+    },
+    {
+      "id": "hawaiian_restaurant",
+      "label": "Hawaiian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "hawaiian-restaurant",
+      "suggestedQueries": [
+        "hawaiian restaurant"
+      ]
+    },
+    {
+      "id": "hookah_bar",
+      "label": "Hookah Bar",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "hookah-bar",
+      "suggestedQueries": [
+        "hookah bar"
+      ]
+    },
+    {
+      "id": "hot_dog_restaurant",
+      "label": "Hot Dog Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "hot-dog-restaurant",
+      "suggestedQueries": [
+        "hot dog restaurant"
+      ]
+    },
+    {
+      "id": "hot_dog_stand",
+      "label": "Hot Dog Stand",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "hot-dog-stand",
+      "suggestedQueries": [
+        "hot dog stand"
+      ]
+    },
+    {
+      "id": "hot_pot_restaurant",
+      "label": "Hot Pot Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "hot-pot-restaurant",
+      "suggestedQueries": [
+        "hot pot restaurant"
+      ]
+    },
+    {
+      "id": "hungarian_restaurant",
+      "label": "Hungarian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "hungarian-restaurant",
+      "suggestedQueries": [
+        "hungarian restaurant"
+      ]
+    },
+    {
+      "id": "ice_cream_shop",
+      "label": "Ice Cream Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "ice-cream-shop",
+      "suggestedQueries": [
+        "ice cream shop"
+      ]
+    },
+    {
+      "id": "indian_restaurant",
+      "label": "Indian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "indian-restaurant",
+      "suggestedQueries": [
+        "indian restaurant"
+      ]
+    },
+    {
+      "id": "indonesian_restaurant",
+      "label": "Indonesian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "indonesian-restaurant",
+      "suggestedQueries": [
+        "indonesian restaurant"
+      ]
+    },
+    {
+      "id": "irish_pub",
+      "label": "Irish Pub",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "irish-pub",
+      "suggestedQueries": [
+        "irish pub"
+      ]
+    },
+    {
+      "id": "irish_restaurant",
+      "label": "Irish Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "irish-restaurant",
+      "suggestedQueries": [
+        "irish restaurant"
+      ]
+    },
+    {
+      "id": "israeli_restaurant",
+      "label": "Israeli Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "israeli-restaurant",
+      "suggestedQueries": [
+        "israeli restaurant"
+      ]
+    },
+    {
+      "id": "italian_restaurant",
+      "label": "Italian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "italian-restaurant",
+      "suggestedQueries": [
+        "italian restaurant"
+      ]
+    },
+    {
+      "id": "japanese_curry_restaurant",
+      "label": "Japanese Curry Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "japanese-curry-restaurant",
+      "suggestedQueries": [
+        "japanese curry restaurant"
+      ]
+    },
+    {
+      "id": "japanese_izakaya_restaurant",
+      "label": "Japanese Izakaya Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "japanese-izakaya-restaurant",
+      "suggestedQueries": [
+        "japanese izakaya restaurant"
+      ]
+    },
+    {
+      "id": "japanese_restaurant",
+      "label": "Japanese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "japanese-restaurant",
+      "suggestedQueries": [
+        "japanese restaurant"
+      ]
+    },
+    {
+      "id": "juice_shop",
+      "label": "Juice Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "juice-shop",
+      "suggestedQueries": [
+        "juice shop"
+      ]
+    },
+    {
+      "id": "kebab_shop",
+      "label": "Kebab Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "kebab-shop",
+      "suggestedQueries": [
+        "kebab shop"
+      ]
+    },
+    {
+      "id": "korean_barbecue_restaurant",
+      "label": "Korean Barbecue Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "korean-barbecue-restaurant",
+      "suggestedQueries": [
+        "korean barbecue restaurant"
+      ]
+    },
+    {
+      "id": "korean_restaurant",
+      "label": "Korean Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "korean-restaurant",
+      "suggestedQueries": [
+        "korean restaurant"
+      ]
+    },
+    {
+      "id": "latin_american_restaurant",
+      "label": "Latin American Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "latin-american-restaurant",
+      "suggestedQueries": [
+        "latin american restaurant"
+      ]
+    },
+    {
+      "id": "lebanese_restaurant",
+      "label": "Lebanese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "lebanese-restaurant",
+      "suggestedQueries": [
+        "lebanese restaurant"
+      ]
+    },
+    {
+      "id": "lounge_bar",
+      "label": "Lounge Bar",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "lounge-bar",
+      "suggestedQueries": [
+        "lounge bar"
+      ]
+    },
+    {
+      "id": "malaysian_restaurant",
+      "label": "Malaysian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "malaysian-restaurant",
+      "suggestedQueries": [
+        "malaysian restaurant"
+      ]
+    },
+    {
+      "id": "meal_delivery",
+      "label": "Meal Delivery",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "meal-delivery",
+      "suggestedQueries": [
+        "meal delivery"
+      ]
+    },
+    {
+      "id": "meal_takeaway",
+      "label": "Meal Takeaway",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "meal-takeaway",
+      "suggestedQueries": [
+        "meal takeaway"
+      ]
+    },
+    {
+      "id": "mediterranean_restaurant",
+      "label": "Mediterranean Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "mediterranean-restaurant",
+      "suggestedQueries": [
+        "mediterranean restaurant"
+      ]
+    },
+    {
+      "id": "mexican_restaurant",
+      "label": "Mexican Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "mexican-restaurant",
+      "suggestedQueries": [
+        "mexican restaurant"
+      ]
+    },
+    {
+      "id": "middle_eastern_restaurant",
+      "label": "Middle Eastern Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "middle-eastern-restaurant",
+      "suggestedQueries": [
+        "middle eastern restaurant"
+      ]
+    },
+    {
+      "id": "mongolian_barbecue_restaurant",
+      "label": "Mongolian Barbecue Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "mongolian-barbecue-restaurant",
+      "suggestedQueries": [
+        "mongolian barbecue restaurant"
+      ]
+    },
+    {
+      "id": "moroccan_restaurant",
+      "label": "Moroccan Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "moroccan-restaurant",
+      "suggestedQueries": [
+        "moroccan restaurant"
+      ]
+    },
+    {
+      "id": "noodle_shop",
+      "label": "Noodle Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "noodle-shop",
+      "suggestedQueries": [
+        "noodle shop"
+      ]
+    },
+    {
+      "id": "north_indian_restaurant",
+      "label": "North Indian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "north-indian-restaurant",
+      "suggestedQueries": [
+        "north indian restaurant"
+      ]
+    },
+    {
+      "id": "oyster_bar_restaurant",
+      "label": "Oyster Bar Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "oyster-bar-restaurant",
+      "suggestedQueries": [
+        "oyster bar restaurant"
+      ]
+    },
+    {
+      "id": "pakistani_restaurant",
+      "label": "Pakistani Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "pakistani-restaurant",
+      "suggestedQueries": [
+        "pakistani restaurant"
+      ]
+    },
+    {
+      "id": "pastry_shop",
+      "label": "Pastry Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "pastry-shop",
+      "suggestedQueries": [
+        "pastry shop"
+      ]
+    },
+    {
+      "id": "persian_restaurant",
+      "label": "Persian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "persian-restaurant",
+      "suggestedQueries": [
+        "persian restaurant"
+      ]
+    },
+    {
+      "id": "peruvian_restaurant",
+      "label": "Peruvian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "peruvian-restaurant",
+      "suggestedQueries": [
+        "peruvian restaurant"
+      ]
+    },
+    {
+      "id": "pizza_delivery",
+      "label": "Pizza Delivery",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "pizza-delivery",
+      "suggestedQueries": [
+        "pizza delivery"
+      ]
+    },
+    {
+      "id": "pizza_restaurant",
+      "label": "Pizza Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "pizza-restaurant",
+      "suggestedQueries": [
+        "pizza restaurant"
+      ]
+    },
+    {
+      "id": "polish_restaurant",
+      "label": "Polish Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "polish-restaurant",
+      "suggestedQueries": [
+        "polish restaurant"
+      ]
+    },
+    {
+      "id": "portuguese_restaurant",
+      "label": "Portuguese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "portuguese-restaurant",
+      "suggestedQueries": [
+        "portuguese restaurant"
+      ]
+    },
+    {
+      "id": "pub",
+      "label": "Pub",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "pub",
+      "suggestedQueries": [
+        "pub"
+      ]
+    },
+    {
+      "id": "ramen_restaurant",
+      "label": "Ramen Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "ramen-restaurant",
+      "suggestedQueries": [
+        "ramen restaurant"
+      ]
+    },
+    {
+      "id": "restaurant",
+      "label": "Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "restaurant",
+      "suggestedQueries": [
+        "restaurant"
+      ]
+    },
+    {
+      "id": "romanian_restaurant",
+      "label": "Romanian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "romanian-restaurant",
+      "suggestedQueries": [
+        "romanian restaurant"
+      ]
+    },
+    {
+      "id": "russian_restaurant",
+      "label": "Russian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "russian-restaurant",
+      "suggestedQueries": [
+        "russian restaurant"
+      ]
+    },
+    {
+      "id": "salad_shop",
+      "label": "Salad Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "salad-shop",
+      "suggestedQueries": [
+        "salad shop"
+      ]
+    },
+    {
+      "id": "sandwich_shop",
+      "label": "Sandwich Shop",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "sandwich-shop",
+      "suggestedQueries": [
+        "sandwich shop"
+      ]
+    },
+    {
+      "id": "scandinavian_restaurant",
+      "label": "Scandinavian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "scandinavian-restaurant",
+      "suggestedQueries": [
+        "scandinavian restaurant"
+      ]
+    },
+    {
+      "id": "seafood_restaurant",
+      "label": "Seafood Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "seafood-restaurant",
+      "suggestedQueries": [
+        "seafood restaurant"
+      ]
+    },
+    {
+      "id": "shawarma_restaurant",
+      "label": "Shawarma Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "shawarma-restaurant",
+      "suggestedQueries": [
+        "shawarma restaurant"
+      ]
+    },
+    {
+      "id": "snack_bar",
+      "label": "Snack Bar",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "snack-bar",
+      "suggestedQueries": [
+        "snack bar"
+      ]
+    },
+    {
+      "id": "soul_food_restaurant",
+      "label": "Soul Food Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "soul-food-restaurant",
+      "suggestedQueries": [
+        "soul food restaurant"
+      ]
+    },
+    {
+      "id": "soup_restaurant",
+      "label": "Soup Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "soup-restaurant",
+      "suggestedQueries": [
+        "soup restaurant"
+      ]
+    },
+    {
+      "id": "south_american_restaurant",
+      "label": "South American Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "south-american-restaurant",
+      "suggestedQueries": [
+        "south american restaurant"
+      ]
+    },
+    {
+      "id": "south_indian_restaurant",
+      "label": "South Indian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "south-indian-restaurant",
+      "suggestedQueries": [
+        "south indian restaurant"
+      ]
+    },
+    {
+      "id": "southwestern_us_restaurant",
+      "label": "Southwestern US Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "southwestern-us-restaurant",
+      "suggestedQueries": [
+        "southwestern us restaurant"
+      ]
+    },
+    {
+      "id": "spanish_restaurant",
+      "label": "Spanish Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "spanish-restaurant",
+      "suggestedQueries": [
+        "spanish restaurant"
+      ]
+    },
+    {
+      "id": "sports_bar",
+      "label": "Sports Bar",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "sports-bar",
+      "suggestedQueries": [
+        "sports bar"
+      ]
+    },
+    {
+      "id": "sri_lankan_restaurant",
+      "label": "Sri Lankan Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "sri-lankan-restaurant",
+      "suggestedQueries": [
+        "sri lankan restaurant"
+      ]
+    },
+    {
+      "id": "steak_house",
+      "label": "Steak House",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "steak-house",
+      "suggestedQueries": [
+        "steak house"
+      ]
+    },
+    {
+      "id": "sushi_restaurant",
+      "label": "Sushi Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "sushi-restaurant",
+      "suggestedQueries": [
+        "sushi restaurant"
+      ]
+    },
+    {
+      "id": "swiss_restaurant",
+      "label": "Swiss Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "swiss-restaurant",
+      "suggestedQueries": [
+        "swiss restaurant"
+      ]
+    },
+    {
+      "id": "taco_restaurant",
+      "label": "Taco Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "taco-restaurant",
+      "suggestedQueries": [
+        "taco restaurant"
+      ]
+    },
+    {
+      "id": "taiwanese_restaurant",
+      "label": "Taiwanese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "taiwanese-restaurant",
+      "suggestedQueries": [
+        "taiwanese restaurant"
+      ]
+    },
+    {
+      "id": "tapas_restaurant",
+      "label": "Tapas Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "tapas-restaurant",
+      "suggestedQueries": [
+        "tapas restaurant"
+      ]
+    },
+    {
+      "id": "tea_house",
+      "label": "Tea House",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "tea-house",
+      "suggestedQueries": [
+        "tea house"
+      ]
+    },
+    {
+      "id": "tex_mex_restaurant",
+      "label": "Tex Mex Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "tex-mex-restaurant",
+      "suggestedQueries": [
+        "tex mex restaurant"
+      ]
+    },
+    {
+      "id": "thai_restaurant",
+      "label": "Thai Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "thai-restaurant",
+      "suggestedQueries": [
+        "thai restaurant"
+      ]
+    },
+    {
+      "id": "tibetan_restaurant",
+      "label": "Tibetan Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "tibetan-restaurant",
+      "suggestedQueries": [
+        "tibetan restaurant"
+      ]
+    },
+    {
+      "id": "tonkatsu_restaurant",
+      "label": "Tonkatsu Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "tonkatsu-restaurant",
+      "suggestedQueries": [
+        "tonkatsu restaurant"
+      ]
+    },
+    {
+      "id": "turkish_restaurant",
+      "label": "Turkish Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "turkish-restaurant",
+      "suggestedQueries": [
+        "turkish restaurant"
+      ]
+    },
+    {
+      "id": "ukrainian_restaurant",
+      "label": "Ukrainian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "ukrainian-restaurant",
+      "suggestedQueries": [
+        "ukrainian restaurant"
+      ]
+    },
+    {
+      "id": "vegan_restaurant",
+      "label": "Vegan Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "vegan-restaurant",
+      "suggestedQueries": [
+        "vegan restaurant"
+      ]
+    },
+    {
+      "id": "vegetarian_restaurant",
+      "label": "Vegetarian Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "vegetarian-restaurant",
+      "suggestedQueries": [
+        "vegetarian restaurant"
+      ]
+    },
+    {
+      "id": "vietnamese_restaurant",
+      "label": "Vietnamese Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "vietnamese-restaurant",
+      "suggestedQueries": [
+        "vietnamese restaurant"
+      ]
+    },
+    {
+      "id": "western_restaurant",
+      "label": "Western Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "western-restaurant",
+      "suggestedQueries": [
+        "western restaurant"
+      ]
+    },
+    {
+      "id": "wine_bar",
+      "label": "Wine Bar",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "wine-bar",
+      "suggestedQueries": [
+        "wine bar"
+      ]
+    },
+    {
+      "id": "winery",
+      "label": "Winery",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "winery",
+      "suggestedQueries": [
+        "winery"
+      ]
+    },
+    {
+      "id": "yakiniku_restaurant",
+      "label": "Yakiniku Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "yakiniku-restaurant",
+      "suggestedQueries": [
+        "yakiniku restaurant"
+      ]
+    },
+    {
+      "id": "yakitori_restaurant",
+      "label": "Yakitori Restaurant",
+      "group": "Food and Drink",
+      "table": "A",
+      "slug": "yakitori-restaurant",
+      "suggestedQueries": [
+        "yakitori restaurant"
+      ]
+    },
+    {
+      "id": "administrative_area_level_1",
+      "label": "Administrative Area Level 1",
+      "group": "Geographical Areas",
+      "table": "A",
+      "slug": "administrative-area-level-1",
+      "suggestedQueries": [
+        "administrative area level 1"
+      ]
+    },
+    {
+      "id": "administrative_area_level_2",
+      "label": "Administrative Area Level 2",
+      "group": "Geographical Areas",
+      "table": "A",
+      "slug": "administrative-area-level-2",
+      "suggestedQueries": [
+        "administrative area level 2"
+      ]
+    },
+    {
+      "id": "country",
+      "label": "Country",
+      "group": "Geographical Areas",
+      "table": "A",
+      "slug": "country",
+      "suggestedQueries": [
+        "country"
+      ]
+    },
+    {
+      "id": "locality",
+      "label": "Locality",
+      "group": "Geographical Areas",
+      "table": "A",
+      "slug": "locality",
+      "suggestedQueries": [
+        "locality"
+      ]
+    },
+    {
+      "id": "postal_code",
+      "label": "Postal Code",
+      "group": "Geographical Areas",
+      "table": "A",
+      "slug": "postal-code",
+      "suggestedQueries": [
+        "postal code"
+      ]
+    },
+    {
+      "id": "school_district",
+      "label": "School District",
+      "group": "Geographical Areas",
+      "table": "A",
+      "slug": "school-district",
+      "suggestedQueries": [
+        "school district"
+      ]
+    },
+    {
+      "id": "city_hall",
+      "label": "City Hall",
+      "group": "Government",
+      "table": "A",
+      "slug": "city-hall",
+      "suggestedQueries": [
+        "city hall"
+      ]
+    },
+    {
+      "id": "courthouse",
+      "label": "Courthouse",
+      "group": "Government",
+      "table": "A",
+      "slug": "courthouse",
+      "suggestedQueries": [
+        "courthouse"
+      ]
+    },
+    {
+      "id": "embassy",
+      "label": "Embassy",
+      "group": "Government",
+      "table": "A",
+      "slug": "embassy",
+      "suggestedQueries": [
+        "embassy"
+      ]
+    },
+    {
+      "id": "fire_station",
+      "label": "Fire Station",
+      "group": "Government",
+      "table": "A",
+      "slug": "fire-station",
+      "suggestedQueries": [
+        "fire station"
+      ]
+    },
+    {
+      "id": "government_office",
+      "label": "Government Office",
+      "group": "Government",
+      "table": "A",
+      "slug": "government-office",
+      "suggestedQueries": [
+        "government office"
+      ]
+    },
+    {
+      "id": "local_government_office",
+      "label": "Local Government Office",
+      "group": "Government",
+      "table": "A",
+      "slug": "local-government-office",
+      "suggestedQueries": [
+        "local government office"
+      ]
+    },
+    {
+      "id": "neighborhood_police_station",
+      "label": "Neighborhood Police Station",
+      "group": "Government",
+      "table": "A",
+      "slug": "neighborhood-police-station",
+      "suggestedQueries": [
+        "neighborhood police station"
+      ]
+    },
+    {
+      "id": "police",
+      "label": "Police",
+      "group": "Government",
+      "table": "A",
+      "slug": "police",
+      "suggestedQueries": [
+        "police"
+      ]
+    },
+    {
+      "id": "post_office",
+      "label": "Post Office",
+      "group": "Government",
+      "table": "A",
+      "slug": "post-office",
+      "suggestedQueries": [
+        "post office"
+      ]
+    },
+    {
+      "id": "chiropractor",
+      "label": "Chiropractor",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "chiropractor",
+      "suggestedQueries": [
+        "chiropractor"
+      ]
+    },
+    {
+      "id": "dental_clinic",
+      "label": "Dental Clinic",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "dental-clinic",
+      "suggestedQueries": [
+        "dental clinic"
+      ]
+    },
+    {
+      "id": "dentist",
+      "label": "Dentist",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "dentist",
+      "suggestedQueries": [
+        "dentist"
+      ]
+    },
+    {
+      "id": "doctor",
+      "label": "Doctor",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "doctor",
+      "suggestedQueries": [
+        "doctor"
+      ]
+    },
+    {
+      "id": "drugstore",
+      "label": "Drugstore",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "drugstore",
+      "suggestedQueries": [
+        "drugstore"
+      ]
+    },
+    {
+      "id": "general_hospital",
+      "label": "General Hospital",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "general-hospital",
+      "suggestedQueries": [
+        "general hospital"
+      ]
+    },
+    {
+      "id": "hospital",
+      "label": "Hospital",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "hospital",
+      "suggestedQueries": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "massage",
+      "label": "Massage",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "massage",
+      "suggestedQueries": [
+        "massage"
+      ]
+    },
+    {
+      "id": "massage_spa",
+      "label": "Massage Spa",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "massage-spa",
+      "suggestedQueries": [
+        "massage spa"
+      ]
+    },
+    {
+      "id": "medical_center",
+      "label": "Medical Center",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "medical-center",
+      "suggestedQueries": [
+        "medical center"
+      ]
+    },
+    {
+      "id": "medical_clinic",
+      "label": "Medical Clinic",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "medical-clinic",
+      "suggestedQueries": [
+        "medical clinic"
+      ]
+    },
+    {
+      "id": "medical_lab",
+      "label": "Medical Lab",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "medical-lab",
+      "suggestedQueries": [
+        "medical lab"
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "label": "Pharmacy",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "pharmacy",
+      "suggestedQueries": [
+        "pharmacy"
+      ]
+    },
+    {
+      "id": "physiotherapist",
+      "label": "Physiotherapist",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "physiotherapist",
+      "suggestedQueries": [
+        "physiotherapist"
+      ]
+    },
+    {
+      "id": "sauna",
+      "label": "Sauna",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "sauna",
+      "suggestedQueries": [
+        "sauna"
+      ]
+    },
+    {
+      "id": "skin_care_clinic",
+      "label": "Skin Care Clinic",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "skin-care-clinic",
+      "suggestedQueries": [
+        "skin care clinic"
+      ]
+    },
+    {
+      "id": "spa",
+      "label": "Spa",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "spa",
+      "suggestedQueries": [
+        "spa"
+      ]
+    },
+    {
+      "id": "tanning_studio",
+      "label": "Tanning Studio",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "tanning-studio",
+      "suggestedQueries": [
+        "tanning studio"
+      ]
+    },
+    {
+      "id": "wellness_center",
+      "label": "Wellness Center",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "wellness-center",
+      "suggestedQueries": [
+        "wellness center"
+      ]
+    },
+    {
+      "id": "yoga_studio",
+      "label": "Yoga Studio",
+      "group": "Health and Wellness",
+      "table": "A",
+      "slug": "yoga-studio",
+      "suggestedQueries": [
+        "yoga studio"
+      ]
+    },
+    {
+      "id": "apartment_building",
+      "label": "Apartment Building",
+      "group": "Housing",
+      "table": "A",
+      "slug": "apartment-building",
+      "suggestedQueries": [
+        "apartment building"
+      ]
+    },
+    {
+      "id": "apartment_complex",
+      "label": "Apartment Complex",
+      "group": "Housing",
+      "table": "A",
+      "slug": "apartment-complex",
+      "suggestedQueries": [
+        "apartment complex"
+      ]
+    },
+    {
+      "id": "condominium_complex",
+      "label": "Condominium Complex",
+      "group": "Housing",
+      "table": "A",
+      "slug": "condominium-complex",
+      "suggestedQueries": [
+        "condominium complex"
+      ]
+    },
+    {
+      "id": "housing_complex",
+      "label": "Housing Complex",
+      "group": "Housing",
+      "table": "A",
+      "slug": "housing-complex",
+      "suggestedQueries": [
+        "housing complex"
+      ]
+    },
+    {
+      "id": "bed_and_breakfast",
+      "label": "Bed And Breakfast",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "bed-and-breakfast",
+      "suggestedQueries": [
+        "bed and breakfast"
+      ]
+    },
+    {
+      "id": "budget_japanese_inn",
+      "label": "Budget Japanese Inn",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "budget-japanese-inn",
+      "suggestedQueries": [
+        "budget japanese inn"
+      ]
+    },
+    {
+      "id": "campground",
+      "label": "Campground",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "campground",
+      "suggestedQueries": [
+        "campground"
+      ]
+    },
+    {
+      "id": "camping_cabin",
+      "label": "Camping Cabin",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "camping-cabin",
+      "suggestedQueries": [
+        "camping cabin"
+      ]
+    },
+    {
+      "id": "cottage",
+      "label": "Cottage",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "cottage",
+      "suggestedQueries": [
+        "cottage"
+      ]
+    },
+    {
+      "id": "extended_stay_hotel",
+      "label": "Extended Stay Hotel",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "extended-stay-hotel",
+      "suggestedQueries": [
+        "extended stay hotel"
+      ]
+    },
+    {
+      "id": "farmstay",
+      "label": "Farmstay",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "farmstay",
+      "suggestedQueries": [
+        "farmstay"
+      ]
+    },
+    {
+      "id": "guest_house",
+      "label": "Guest House",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "guest-house",
+      "suggestedQueries": [
+        "guest house"
+      ]
+    },
+    {
+      "id": "hostel",
+      "label": "Hostel",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "hostel",
+      "suggestedQueries": [
+        "hostel"
+      ]
+    },
+    {
+      "id": "hotel",
+      "label": "Hotel",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "hotel",
+      "suggestedQueries": [
+        "hotel"
+      ]
+    },
+    {
+      "id": "inn",
+      "label": "Inn",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "inn",
+      "suggestedQueries": [
+        "inn"
+      ]
+    },
+    {
+      "id": "japanese_inn",
+      "label": "Japanese Inn",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "japanese-inn",
+      "suggestedQueries": [
+        "japanese inn"
+      ]
+    },
+    {
+      "id": "lodging",
+      "label": "Lodging",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "lodging",
+      "suggestedQueries": [
+        "lodging"
+      ]
+    },
+    {
+      "id": "mobile_home_park",
+      "label": "Mobile Home Park",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "mobile-home-park",
+      "suggestedQueries": [
+        "mobile home park"
+      ]
+    },
+    {
+      "id": "motel",
+      "label": "Motel",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "motel",
+      "suggestedQueries": [
+        "motel"
+      ]
+    },
+    {
+      "id": "private_guest_room",
+      "label": "Private Guest Room",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "private-guest-room",
+      "suggestedQueries": [
+        "private guest room"
+      ]
+    },
+    {
+      "id": "resort_hotel",
+      "label": "Resort Hotel",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "resort-hotel",
+      "suggestedQueries": [
+        "resort hotel"
+      ]
+    },
+    {
+      "id": "rv_park",
+      "label": "Rv Park",
+      "group": "Lodging",
+      "table": "A",
+      "slug": "rv-park",
+      "suggestedQueries": [
+        "rv park"
+      ]
+    },
+    {
+      "id": "beach",
+      "label": "Beach",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "beach",
+      "suggestedQueries": [
+        "beach"
+      ]
+    },
+    {
+      "id": "island",
+      "label": "Island",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "island",
+      "suggestedQueries": [
+        "island"
+      ]
+    },
+    {
+      "id": "lake",
+      "label": "Lake",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "lake",
+      "suggestedQueries": [
+        "lake"
+      ]
+    },
+    {
+      "id": "mountain_peak",
+      "label": "Mountain Peak",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "mountain-peak",
+      "suggestedQueries": [
+        "mountain peak"
+      ]
+    },
+    {
+      "id": "nature_preserve",
+      "label": "Nature Preserve",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "nature-preserve",
+      "suggestedQueries": [
+        "nature preserve"
+      ]
+    },
+    {
+      "id": "river",
+      "label": "River",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "river",
+      "suggestedQueries": [
+        "river"
+      ]
+    },
+    {
+      "id": "scenic_spot",
+      "label": "Scenic Spot",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "scenic-spot",
+      "suggestedQueries": [
+        "scenic spot"
+      ]
+    },
+    {
+      "id": "woods",
+      "label": "Woods",
+      "group": "Natural Features",
+      "table": "A",
+      "slug": "woods",
+      "suggestedQueries": [
+        "woods"
+      ]
+    },
+    {
+      "id": "buddhist_temple",
+      "label": "Buddhist Temple",
+      "group": "Places of Worship",
+      "table": "A",
+      "slug": "buddhist-temple",
+      "suggestedQueries": [
+        "buddhist temple"
+      ]
+    },
+    {
+      "id": "church",
+      "label": "Church",
+      "group": "Places of Worship",
+      "table": "A",
+      "slug": "church",
+      "suggestedQueries": [
+        "church"
+      ]
+    },
+    {
+      "id": "hindu_temple",
+      "label": "Hindu Temple",
+      "group": "Places of Worship",
+      "table": "A",
+      "slug": "hindu-temple",
+      "suggestedQueries": [
+        "hindu temple"
+      ]
+    },
+    {
+      "id": "mosque",
+      "label": "Mosque",
+      "group": "Places of Worship",
+      "table": "A",
+      "slug": "mosque",
+      "suggestedQueries": [
+        "mosque"
+      ]
+    },
+    {
+      "id": "shinto_shrine",
+      "label": "Shinto Shrine",
+      "group": "Places of Worship",
+      "table": "A",
+      "slug": "shinto-shrine",
+      "suggestedQueries": [
+        "shinto shrine"
+      ]
+    },
+    {
+      "id": "synagogue",
+      "label": "Synagogue",
+      "group": "Places of Worship",
+      "table": "A",
+      "slug": "synagogue",
+      "suggestedQueries": [
+        "synagogue"
+      ]
+    },
+    {
+      "id": "aircraft_rental_service",
+      "label": "Aircraft Rental Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "aircraft-rental-service",
+      "suggestedQueries": [
+        "aircraft rental service"
+      ]
+    },
+    {
+      "id": "association_or_organization",
+      "label": "Association Or Organization",
+      "group": "Services",
+      "table": "A",
+      "slug": "association-or-organization",
+      "suggestedQueries": [
+        "association or organization"
+      ]
+    },
+    {
+      "id": "astrologer",
+      "label": "Astrologer",
+      "group": "Services",
+      "table": "A",
+      "slug": "astrologer",
+      "suggestedQueries": [
+        "astrologer"
+      ]
+    },
+    {
+      "id": "barber_shop",
+      "label": "Barber Shop",
+      "group": "Services",
+      "table": "A",
+      "slug": "barber-shop",
+      "suggestedQueries": [
+        "barber shop"
+      ]
+    },
+    {
+      "id": "beautician",
+      "label": "Beautician",
+      "group": "Services",
+      "table": "A",
+      "slug": "beautician",
+      "suggestedQueries": [
+        "beautician"
+      ]
+    },
+    {
+      "id": "beauty_salon",
+      "label": "Beauty Salon",
+      "group": "Services",
+      "table": "A",
+      "slug": "beauty-salon",
+      "suggestedQueries": [
+        "beauty salon"
+      ]
+    },
+    {
+      "id": "body_art_service",
+      "label": "Body Art Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "body-art-service",
+      "suggestedQueries": [
+        "body art service"
+      ]
+    },
+    {
+      "id": "catering_service",
+      "label": "Catering Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "catering-service",
+      "suggestedQueries": [
+        "catering service"
+      ]
+    },
+    {
+      "id": "cemetery",
+      "label": "Cemetery",
+      "group": "Services",
+      "table": "A",
+      "slug": "cemetery",
+      "suggestedQueries": [
+        "cemetery"
+      ]
+    },
+    {
+      "id": "chauffeur_service",
+      "label": "Chauffeur Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "chauffeur-service",
+      "suggestedQueries": [
+        "chauffeur service"
+      ]
+    },
+    {
+      "id": "child_care_agency",
+      "label": "Child Care Agency",
+      "group": "Services",
+      "table": "A",
+      "slug": "child-care-agency",
+      "suggestedQueries": [
+        "child care agency"
+      ]
+    },
+    {
+      "id": "consultant",
+      "label": "Consultant",
+      "group": "Services",
+      "table": "A",
+      "slug": "consultant",
+      "suggestedQueries": [
+        "consultant"
+      ]
+    },
+    {
+      "id": "courier_service",
+      "label": "Courier Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "courier-service",
+      "suggestedQueries": [
+        "courier service"
+      ]
+    },
+    {
+      "id": "electrician",
+      "label": "Electrician",
+      "group": "Services",
+      "table": "A",
+      "slug": "electrician",
+      "suggestedQueries": [
+        "electrician"
+      ]
+    },
+    {
+      "id": "employment_agency",
+      "label": "Employment Agency",
+      "group": "Services",
+      "table": "A",
+      "slug": "employment-agency",
+      "suggestedQueries": [
+        "employment agency"
+      ]
+    },
+    {
+      "id": "florist",
+      "label": "Florist",
+      "group": "Services",
+      "table": "A",
+      "slug": "florist",
+      "suggestedQueries": [
+        "florist"
+      ]
+    },
+    {
+      "id": "food_delivery",
+      "label": "Food Delivery",
+      "group": "Services",
+      "table": "A",
+      "slug": "food-delivery",
+      "suggestedQueries": [
+        "food delivery"
+      ]
+    },
+    {
+      "id": "foot_care",
+      "label": "Foot Care",
+      "group": "Services",
+      "table": "A",
+      "slug": "foot-care",
+      "suggestedQueries": [
+        "foot care"
+      ]
+    },
+    {
+      "id": "funeral_home",
+      "label": "Funeral Home",
+      "group": "Services",
+      "table": "A",
+      "slug": "funeral-home",
+      "suggestedQueries": [
+        "funeral home"
+      ]
+    },
+    {
+      "id": "hair_care",
+      "label": "Hair Care",
+      "group": "Services",
+      "table": "A",
+      "slug": "hair-care",
+      "suggestedQueries": [
+        "hair care"
+      ]
+    },
+    {
+      "id": "hair_salon",
+      "label": "Hair Salon",
+      "group": "Services",
+      "table": "A",
+      "slug": "hair-salon",
+      "suggestedQueries": [
+        "hair salon"
+      ]
+    },
+    {
+      "id": "insurance_agency",
+      "label": "Insurance Agency",
+      "group": "Services",
+      "table": "A",
+      "slug": "insurance-agency",
+      "suggestedQueries": [
+        "insurance agency"
+      ]
+    },
+    {
+      "id": "laundry",
+      "label": "Laundry",
+      "group": "Services",
+      "table": "A",
+      "slug": "laundry",
+      "suggestedQueries": [
+        "laundry"
+      ]
+    },
+    {
+      "id": "lawyer",
+      "label": "Lawyer",
+      "group": "Services",
+      "table": "A",
+      "slug": "lawyer",
+      "suggestedQueries": [
+        "lawyer",
+        "attorney"
+      ]
+    },
+    {
+      "id": "locksmith",
+      "label": "Locksmith",
+      "group": "Services",
+      "table": "A",
+      "slug": "locksmith",
+      "suggestedQueries": [
+        "locksmith"
+      ]
+    },
+    {
+      "id": "makeup_artist",
+      "label": "Makeup Artist",
+      "group": "Services",
+      "table": "A",
+      "slug": "makeup-artist",
+      "suggestedQueries": [
+        "makeup artist"
+      ]
+    },
+    {
+      "id": "marketing_consultant",
+      "label": "Marketing Consultant",
+      "group": "Services",
+      "table": "A",
+      "slug": "marketing-consultant",
+      "suggestedQueries": [
+        "marketing agency",
+        "advertising agency",
+        "marketing consultant"
+      ]
+    },
+    {
+      "id": "moving_company",
+      "label": "Moving Company",
+      "group": "Services",
+      "table": "A",
+      "slug": "moving-company",
+      "suggestedQueries": [
+        "moving company"
+      ]
+    },
+    {
+      "id": "nail_salon",
+      "label": "Nail Salon",
+      "group": "Services",
+      "table": "A",
+      "slug": "nail-salon",
+      "suggestedQueries": [
+        "nail salon"
+      ]
+    },
+    {
+      "id": "non_profit_organization",
+      "label": "Non Profit Organization",
+      "group": "Services",
+      "table": "A",
+      "slug": "non-profit-organization",
+      "suggestedQueries": [
+        "non profit organization"
+      ]
+    },
+    {
+      "id": "painter",
+      "label": "Painter",
+      "group": "Services",
+      "table": "A",
+      "slug": "painter",
+      "suggestedQueries": [
+        "painter"
+      ]
+    },
+    {
+      "id": "pet_boarding_service",
+      "label": "Pet Boarding Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "pet-boarding-service",
+      "suggestedQueries": [
+        "pet boarding service"
+      ]
+    },
+    {
+      "id": "pet_care",
+      "label": "Pet Care",
+      "group": "Services",
+      "table": "A",
+      "slug": "pet-care",
+      "suggestedQueries": [
+        "pet care"
+      ]
+    },
+    {
+      "id": "plumber",
+      "label": "Plumber",
+      "group": "Services",
+      "table": "A",
+      "slug": "plumber",
+      "suggestedQueries": [
+        "plumber"
+      ]
+    },
+    {
+      "id": "psychic",
+      "label": "Psychic",
+      "group": "Services",
+      "table": "A",
+      "slug": "psychic",
+      "suggestedQueries": [
+        "psychic"
+      ]
+    },
+    {
+      "id": "real_estate_agency",
+      "label": "Real Estate Agency",
+      "group": "Services",
+      "table": "A",
+      "slug": "real-estate-agency",
+      "suggestedQueries": [
+        "real estate agency",
+        "realtor"
+      ]
+    },
+    {
+      "id": "roofing_contractor",
+      "label": "Roofing Contractor",
+      "group": "Services",
+      "table": "A",
+      "slug": "roofing-contractor",
+      "suggestedQueries": [
+        "roofing contractor"
+      ]
+    },
+    {
+      "id": "service",
+      "label": "Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "service",
+      "suggestedQueries": [
+        "service"
+      ]
+    },
+    {
+      "id": "shipping_service",
+      "label": "Shipping Service",
+      "group": "Services",
+      "table": "A",
+      "slug": "shipping-service",
+      "suggestedQueries": [
+        "shipping service"
+      ]
+    },
+    {
+      "id": "storage",
+      "label": "Storage",
+      "group": "Services",
+      "table": "A",
+      "slug": "storage",
+      "suggestedQueries": [
+        "storage"
+      ]
+    },
+    {
+      "id": "summer_camp_organizer",
+      "label": "Summer Camp Organizer",
+      "group": "Services",
+      "table": "A",
+      "slug": "summer-camp-organizer",
+      "suggestedQueries": [
+        "summer camp organizer"
+      ]
+    },
+    {
+      "id": "tailor",
+      "label": "Tailor",
+      "group": "Services",
+      "table": "A",
+      "slug": "tailor",
+      "suggestedQueries": [
+        "tailor"
+      ]
+    },
+    {
+      "id": "telecommunications_service_provider",
+      "label": "Telecommunications Service Provider",
+      "group": "Services",
+      "table": "A",
+      "slug": "telecommunications-service-provider",
+      "suggestedQueries": [
+        "telecommunications service provider"
+      ]
+    },
+    {
+      "id": "tour_agency",
+      "label": "Tour Agency",
+      "group": "Services",
+      "table": "A",
+      "slug": "tour-agency",
+      "suggestedQueries": [
+        "tour agency"
+      ]
+    },
+    {
+      "id": "tourist_information_center",
+      "label": "Tourist Information Center",
+      "group": "Services",
+      "table": "A",
+      "slug": "tourist-information-center",
+      "suggestedQueries": [
+        "tourist information center"
+      ]
+    },
+    {
+      "id": "travel_agency",
+      "label": "Travel Agency",
+      "group": "Services",
+      "table": "A",
+      "slug": "travel-agency",
+      "suggestedQueries": [
+        "travel agency"
+      ]
+    },
+    {
+      "id": "veterinary_care",
+      "label": "Veterinary Care",
+      "group": "Services",
+      "table": "A",
+      "slug": "veterinary-care",
+      "suggestedQueries": [
+        "veterinary clinic",
+        "vet"
+      ]
+    },
+    {
+      "id": "asian_grocery_store",
+      "label": "Asian Grocery Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "asian-grocery-store",
+      "suggestedQueries": [
+        "asian grocery store"
+      ]
+    },
+    {
+      "id": "auto_parts_store",
+      "label": "Auto Parts Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "auto-parts-store",
+      "suggestedQueries": [
+        "auto parts store"
+      ]
+    },
+    {
+      "id": "bicycle_store",
+      "label": "Bicycle Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "bicycle-store",
+      "suggestedQueries": [
+        "bicycle store"
+      ]
+    },
+    {
+      "id": "book_store",
+      "label": "Book Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "book-store",
+      "suggestedQueries": [
+        "bookstore",
+        "book store"
+      ]
+    },
+    {
+      "id": "building_materials_store",
+      "label": "Building Materials Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "building-materials-store",
+      "suggestedQueries": [
+        "building materials store"
+      ]
+    },
+    {
+      "id": "butcher_shop",
+      "label": "Butcher Shop",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "butcher-shop",
+      "suggestedQueries": [
+        "butcher shop"
+      ]
+    },
+    {
+      "id": "cell_phone_store",
+      "label": "Cell Phone Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "cell-phone-store",
+      "suggestedQueries": [
+        "cell phone store"
+      ]
+    },
+    {
+      "id": "clothing_store",
+      "label": "Clothing Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "clothing-store",
+      "suggestedQueries": [
+        "clothing store"
+      ]
+    },
+    {
+      "id": "convenience_store",
+      "label": "Convenience Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "convenience-store",
+      "suggestedQueries": [
+        "convenience store"
+      ]
+    },
+    {
+      "id": "cosmetics_store",
+      "label": "Cosmetics Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "cosmetics-store",
+      "suggestedQueries": [
+        "cosmetics store"
+      ]
+    },
+    {
+      "id": "department_store",
+      "label": "Department Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "department-store",
+      "suggestedQueries": [
+        "department store"
+      ]
+    },
+    {
+      "id": "discount_store",
+      "label": "Discount Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "discount-store",
+      "suggestedQueries": [
+        "discount store"
+      ]
+    },
+    {
+      "id": "discount_supermarket",
+      "label": "Discount Supermarket",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "discount-supermarket",
+      "suggestedQueries": [
+        "discount supermarket"
+      ]
+    },
+    {
+      "id": "electronics_store",
+      "label": "Electronics Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "electronics-store",
+      "suggestedQueries": [
+        "electronics store"
+      ]
+    },
+    {
+      "id": "farmers_market",
+      "label": "Farmers Market",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "farmers-market",
+      "suggestedQueries": [
+        "farmers market"
+      ]
+    },
+    {
+      "id": "flea_market",
+      "label": "Flea Market",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "flea-market",
+      "suggestedQueries": [
+        "flea market"
+      ]
+    },
+    {
+      "id": "food_store",
+      "label": "Food Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "food-store",
+      "suggestedQueries": [
+        "food store"
+      ]
+    },
+    {
+      "id": "furniture_store",
+      "label": "Furniture Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "furniture-store",
+      "suggestedQueries": [
+        "furniture store"
+      ]
+    },
+    {
+      "id": "garden_center",
+      "label": "Garden Center",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "garden-center",
+      "suggestedQueries": [
+        "garden center"
+      ]
+    },
+    {
+      "id": "general_store",
+      "label": "General Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "general-store",
+      "suggestedQueries": [
+        "general store"
+      ]
+    },
+    {
+      "id": "gift_shop",
+      "label": "Gift Shop",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "gift-shop",
+      "suggestedQueries": [
+        "gift shop"
+      ]
+    },
+    {
+      "id": "grocery_store",
+      "label": "Grocery Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "grocery-store",
+      "suggestedQueries": [
+        "grocery store"
+      ]
+    },
+    {
+      "id": "hardware_store",
+      "label": "Hardware Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "hardware-store",
+      "suggestedQueries": [
+        "hardware store"
+      ]
+    },
+    {
+      "id": "health_food_store",
+      "label": "Health Food Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "health-food-store",
+      "suggestedQueries": [
+        "health food store"
+      ]
+    },
+    {
+      "id": "home_goods_store",
+      "label": "Home Goods Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "home-goods-store",
+      "suggestedQueries": [
+        "home goods store"
+      ]
+    },
+    {
+      "id": "home_improvement_store",
+      "label": "Home Improvement Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "home-improvement-store",
+      "suggestedQueries": [
+        "home improvement store"
+      ]
+    },
+    {
+      "id": "hypermarket",
+      "label": "Hypermarket",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "hypermarket",
+      "suggestedQueries": [
+        "hypermarket"
+      ]
+    },
+    {
+      "id": "jewelry_store",
+      "label": "Jewelry Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "jewelry-store",
+      "suggestedQueries": [
+        "jewelry store"
+      ]
+    },
+    {
+      "id": "liquor_store",
+      "label": "Liquor Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "liquor-store",
+      "suggestedQueries": [
+        "liquor store"
+      ]
+    },
+    {
+      "id": "market",
+      "label": "Market",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "market",
+      "suggestedQueries": [
+        "market"
+      ]
+    },
+    {
+      "id": "pet_store",
+      "label": "Pet Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "pet-store",
+      "suggestedQueries": [
+        "pet store"
+      ]
+    },
+    {
+      "id": "shoe_store",
+      "label": "Shoe Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "shoe-store",
+      "suggestedQueries": [
+        "shoe store"
+      ]
+    },
+    {
+      "id": "shopping_mall",
+      "label": "Shopping Mall",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "shopping-mall",
+      "suggestedQueries": [
+        "shopping mall"
+      ]
+    },
+    {
+      "id": "sporting_goods_store",
+      "label": "Sporting Goods Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "sporting-goods-store",
+      "suggestedQueries": [
+        "sporting goods store"
+      ]
+    },
+    {
+      "id": "sportswear_store",
+      "label": "Sportswear Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "sportswear-store",
+      "suggestedQueries": [
+        "sportswear store"
+      ]
+    },
+    {
+      "id": "store",
+      "label": "Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "store",
+      "suggestedQueries": [
+        "store"
+      ]
+    },
+    {
+      "id": "supermarket",
+      "label": "Supermarket",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "supermarket",
+      "suggestedQueries": [
+        "supermarket"
+      ]
+    },
+    {
+      "id": "tea_store",
+      "label": "Tea Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "tea-store",
+      "suggestedQueries": [
+        "tea store"
+      ]
+    },
+    {
+      "id": "thrift_store",
+      "label": "Thrift Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "thrift-store",
+      "suggestedQueries": [
+        "thrift store"
+      ]
+    },
+    {
+      "id": "toy_store",
+      "label": "Toy Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "toy-store",
+      "suggestedQueries": [
+        "toy store"
+      ]
+    },
+    {
+      "id": "warehouse_store",
+      "label": "Warehouse Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "warehouse-store",
+      "suggestedQueries": [
+        "warehouse store"
+      ]
+    },
+    {
+      "id": "wholesaler",
+      "label": "Wholesaler",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "wholesaler",
+      "suggestedQueries": [
+        "wholesaler"
+      ]
+    },
+    {
+      "id": "womens_clothing_store",
+      "label": "Womens Clothing Store",
+      "group": "Shopping",
+      "table": "A",
+      "slug": "womens-clothing-store",
+      "suggestedQueries": [
+        "womens clothing store"
+      ]
+    },
+    {
+      "id": "arena",
+      "label": "Arena",
+      "group": "Sports",
+      "table": "A",
+      "slug": "arena",
+      "suggestedQueries": [
+        "arena"
+      ]
+    },
+    {
+      "id": "athletic_field",
+      "label": "Athletic Field",
+      "group": "Sports",
+      "table": "A",
+      "slug": "athletic-field",
+      "suggestedQueries": [
+        "athletic field"
+      ]
+    },
+    {
+      "id": "fishing_charter",
+      "label": "Fishing Charter",
+      "group": "Sports",
+      "table": "A",
+      "slug": "fishing-charter",
+      "suggestedQueries": [
+        "fishing charter"
+      ]
+    },
+    {
+      "id": "fishing_pier",
+      "label": "Fishing Pier",
+      "group": "Sports",
+      "table": "A",
+      "slug": "fishing-pier",
+      "suggestedQueries": [
+        "fishing pier"
+      ]
+    },
+    {
+      "id": "fishing_pond",
+      "label": "Fishing Pond",
+      "group": "Sports",
+      "table": "A",
+      "slug": "fishing-pond",
+      "suggestedQueries": [
+        "fishing pond"
+      ]
+    },
+    {
+      "id": "fitness_center",
+      "label": "Fitness Center",
+      "group": "Sports",
+      "table": "A",
+      "slug": "fitness-center",
+      "suggestedQueries": [
+        "fitness center",
+        "gym"
+      ]
+    },
+    {
+      "id": "golf_course",
+      "label": "Golf Course",
+      "group": "Sports",
+      "table": "A",
+      "slug": "golf-course",
+      "suggestedQueries": [
+        "golf course"
+      ]
+    },
+    {
+      "id": "gym",
+      "label": "Gym",
+      "group": "Sports",
+      "table": "A",
+      "slug": "gym",
+      "suggestedQueries": [
+        "gym"
+      ]
+    },
+    {
+      "id": "ice_skating_rink",
+      "label": "Ice Skating Rink",
+      "group": "Sports",
+      "table": "A",
+      "slug": "ice-skating-rink",
+      "suggestedQueries": [
+        "ice skating rink"
+      ]
+    },
+    {
+      "id": "indoor_golf_course",
+      "label": "Indoor Golf Course",
+      "group": "Sports",
+      "table": "A",
+      "slug": "indoor-golf-course",
+      "suggestedQueries": [
+        "indoor golf course"
+      ]
+    },
+    {
+      "id": "playground",
+      "label": "Playground",
+      "group": "Sports",
+      "table": "A",
+      "slug": "playground",
+      "suggestedQueries": [
+        "playground"
+      ]
+    },
+    {
+      "id": "race_course",
+      "label": "Race Course",
+      "group": "Sports",
+      "table": "A",
+      "slug": "race-course",
+      "suggestedQueries": [
+        "race course"
+      ]
+    },
+    {
+      "id": "ski_resort",
+      "label": "Ski Resort",
+      "group": "Sports",
+      "table": "A",
+      "slug": "ski-resort",
+      "suggestedQueries": [
+        "ski resort"
+      ]
+    },
+    {
+      "id": "sports_activity_location",
+      "label": "Sports Activity Location",
+      "group": "Sports",
+      "table": "A",
+      "slug": "sports-activity-location",
+      "suggestedQueries": [
+        "sports activity location"
+      ]
+    },
+    {
+      "id": "sports_club",
+      "label": "Sports Club",
+      "group": "Sports",
+      "table": "A",
+      "slug": "sports-club",
+      "suggestedQueries": [
+        "sports club"
+      ]
+    },
+    {
+      "id": "sports_coaching",
+      "label": "Sports Coaching",
+      "group": "Sports",
+      "table": "A",
+      "slug": "sports-coaching",
+      "suggestedQueries": [
+        "sports coaching"
+      ]
+    },
+    {
+      "id": "sports_complex",
+      "label": "Sports Complex",
+      "group": "Sports",
+      "table": "A",
+      "slug": "sports-complex",
+      "suggestedQueries": [
+        "sports complex"
+      ]
+    },
+    {
+      "id": "sports_school",
+      "label": "Sports School",
+      "group": "Sports",
+      "table": "A",
+      "slug": "sports-school",
+      "suggestedQueries": [
+        "sports school"
+      ]
+    },
+    {
+      "id": "stadium",
+      "label": "Stadium",
+      "group": "Sports",
+      "table": "A",
+      "slug": "stadium",
+      "suggestedQueries": [
+        "stadium"
+      ]
+    },
+    {
+      "id": "swimming_pool",
+      "label": "Swimming Pool",
+      "group": "Sports",
+      "table": "A",
+      "slug": "swimming-pool",
+      "suggestedQueries": [
+        "swimming pool"
+      ]
+    },
+    {
+      "id": "tennis_court",
+      "label": "Tennis Court",
+      "group": "Sports",
+      "table": "A",
+      "slug": "tennis-court",
+      "suggestedQueries": [
+        "tennis court"
+      ]
+    },
+    {
+      "id": "airport",
+      "label": "Airport",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "airport",
+      "suggestedQueries": [
+        "airport"
+      ]
+    },
+    {
+      "id": "airstrip",
+      "label": "Airstrip",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "airstrip",
+      "suggestedQueries": [
+        "airstrip"
+      ]
+    },
+    {
+      "id": "bike_sharing_station",
+      "label": "Bike Sharing Station",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "bike-sharing-station",
+      "suggestedQueries": [
+        "bike sharing station"
+      ]
+    },
+    {
+      "id": "bridge",
+      "label": "Bridge",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "bridge",
+      "suggestedQueries": [
+        "bridge"
+      ]
+    },
+    {
+      "id": "bus_station",
+      "label": "Bus Station",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "bus-station",
+      "suggestedQueries": [
+        "bus station"
+      ]
+    },
+    {
+      "id": "bus_stop",
+      "label": "Bus Stop",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "bus-stop",
+      "suggestedQueries": [
+        "bus stop"
+      ]
+    },
+    {
+      "id": "ferry_service",
+      "label": "Ferry Service",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "ferry-service",
+      "suggestedQueries": [
+        "ferry service"
+      ]
+    },
+    {
+      "id": "ferry_terminal",
+      "label": "Ferry Terminal",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "ferry-terminal",
+      "suggestedQueries": [
+        "ferry terminal"
+      ]
+    },
+    {
+      "id": "heliport",
+      "label": "Heliport",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "heliport",
+      "suggestedQueries": [
+        "heliport"
+      ]
+    },
+    {
+      "id": "international_airport",
+      "label": "International Airport",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "international-airport",
+      "suggestedQueries": [
+        "international airport"
+      ]
+    },
+    {
+      "id": "light_rail_station",
+      "label": "Light Rail Station",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "light-rail-station",
+      "suggestedQueries": [
+        "light rail station"
+      ]
+    },
+    {
+      "id": "park_and_ride",
+      "label": "Park And Ride",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "park-and-ride",
+      "suggestedQueries": [
+        "park and ride"
+      ]
+    },
+    {
+      "id": "subway_station",
+      "label": "Subway Station",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "subway-station",
+      "suggestedQueries": [
+        "subway station"
+      ]
+    },
+    {
+      "id": "taxi_service",
+      "label": "Taxi Service",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "taxi-service",
+      "suggestedQueries": [
+        "taxi service"
+      ]
+    },
+    {
+      "id": "taxi_stand",
+      "label": "Taxi Stand",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "taxi-stand",
+      "suggestedQueries": [
+        "taxi stand"
+      ]
+    },
+    {
+      "id": "toll_station",
+      "label": "Toll Station",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "toll-station",
+      "suggestedQueries": [
+        "toll station"
+      ]
+    },
+    {
+      "id": "train_station",
+      "label": "Train Station",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "train-station",
+      "suggestedQueries": [
+        "train station"
+      ]
+    },
+    {
+      "id": "train_ticket_office",
+      "label": "Train Ticket Office",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "train-ticket-office",
+      "suggestedQueries": [
+        "train ticket office"
+      ]
+    },
+    {
+      "id": "tram_stop",
+      "label": "Tram Stop",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "tram-stop",
+      "suggestedQueries": [
+        "tram stop"
+      ]
+    },
+    {
+      "id": "transit_depot",
+      "label": "Transit Depot",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "transit-depot",
+      "suggestedQueries": [
+        "transit depot"
+      ]
+    },
+    {
+      "id": "transit_station",
+      "label": "Transit Station",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "transit-station",
+      "suggestedQueries": [
+        "transit station"
+      ]
+    },
+    {
+      "id": "transit_stop",
+      "label": "Transit Stop",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "transit-stop",
+      "suggestedQueries": [
+        "transit stop"
+      ]
+    },
+    {
+      "id": "transportation_service",
+      "label": "Transportation Service",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "transportation-service",
+      "suggestedQueries": [
+        "transportation service"
+      ]
+    },
+    {
+      "id": "truck_stop",
+      "label": "Truck Stop",
+      "group": "Transportation",
+      "table": "A",
+      "slug": "truck-stop",
+      "suggestedQueries": [
+        "truck stop"
+      ]
+    },
+    {
+      "id": "administrative_area_level_3",
+      "label": "Administrative Area Level 3",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "administrative-area-level-3",
+      "suggestedQueries": [
+        "administrative area level 3"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "administrative_area_level_4",
+      "label": "Administrative Area Level 4",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "administrative-area-level-4",
+      "suggestedQueries": [
+        "administrative area level 4"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "administrative_area_level_5",
+      "label": "Administrative Area Level 5",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "administrative-area-level-5",
+      "suggestedQueries": [
+        "administrative area level 5"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "administrative_area_level_6",
+      "label": "Administrative Area Level 6",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "administrative-area-level-6",
+      "suggestedQueries": [
+        "administrative area level 6"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "administrative_area_level_7",
+      "label": "Administrative Area Level 7",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "administrative-area-level-7",
+      "suggestedQueries": [
+        "administrative area level 7"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "archipelago",
+      "label": "Archipelago",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "archipelago",
+      "suggestedQueries": [
+        "archipelago"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "colloquial_area",
+      "label": "Colloquial Area",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "colloquial-area",
+      "suggestedQueries": [
+        "colloquial area"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "continent",
+      "label": "Continent",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "continent",
+      "suggestedQueries": [
+        "continent"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "establishment",
+      "label": "Establishment",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "establishment",
+      "suggestedQueries": [
+        "establishment"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "finance",
+      "label": "Finance",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "finance",
+      "suggestedQueries": [
+        "finance"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "food",
+      "label": "Food",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "food",
+      "suggestedQueries": [
+        "food"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "general_contractor",
+      "label": "General Contractor",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "general-contractor",
+      "suggestedQueries": [
+        "general contractor"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "geocode",
+      "label": "Geocode",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "geocode",
+      "suggestedQueries": [
+        "geocode"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "health",
+      "label": "Health",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "health",
+      "suggestedQueries": [
+        "health"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "intersection",
+      "label": "Intersection",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "intersection",
+      "suggestedQueries": [
+        "intersection"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "landmark",
+      "label": "Landmark",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "landmark",
+      "suggestedQueries": [
+        "landmark"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "natural_feature",
+      "label": "Natural Feature",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "natural-feature",
+      "suggestedQueries": [
+        "natural feature"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "neighborhood",
+      "label": "Neighborhood",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "neighborhood",
+      "suggestedQueries": [
+        "neighborhood"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "place_of_worship",
+      "label": "Place Of Worship",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "place-of-worship",
+      "suggestedQueries": [
+        "place of worship"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "plus_code",
+      "label": "Plus Code",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "plus-code",
+      "suggestedQueries": [
+        "plus code"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "point_of_interest",
+      "label": "Point Of Interest",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "point-of-interest",
+      "suggestedQueries": [
+        "point of interest"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "political",
+      "label": "Political",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "political",
+      "suggestedQueries": [
+        "political"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "postal_code_prefix",
+      "label": "Postal Code Prefix",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "postal-code-prefix",
+      "suggestedQueries": [
+        "postal code prefix"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "postal_code_suffix",
+      "label": "Postal Code Suffix",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "postal-code-suffix",
+      "suggestedQueries": [
+        "postal code suffix"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "postal_town",
+      "label": "Postal Town",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "postal-town",
+      "suggestedQueries": [
+        "postal town"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "premise",
+      "label": "Premise",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "premise",
+      "suggestedQueries": [
+        "premise"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "route",
+      "label": "Route",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "route",
+      "suggestedQueries": [
+        "route"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "street_address",
+      "label": "Street Address",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "street-address",
+      "suggestedQueries": [
+        "street address"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "sublocality",
+      "label": "Sublocality",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "sublocality",
+      "suggestedQueries": [
+        "sublocality"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "sublocality_level_1",
+      "label": "Sublocality Level 1",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "sublocality-level-1",
+      "suggestedQueries": [
+        "sublocality level 1"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "sublocality_level_2",
+      "label": "Sublocality Level 2",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "sublocality-level-2",
+      "suggestedQueries": [
+        "sublocality level 2"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "sublocality_level_3",
+      "label": "Sublocality Level 3",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "sublocality-level-3",
+      "suggestedQueries": [
+        "sublocality level 3"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "sublocality_level_4",
+      "label": "Sublocality Level 4",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "sublocality-level-4",
+      "suggestedQueries": [
+        "sublocality level 4"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "sublocality_level_5",
+      "label": "Sublocality Level 5",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "sublocality-level-5",
+      "suggestedQueries": [
+        "sublocality level 5"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "subpremise",
+      "label": "Subpremise",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "subpremise",
+      "suggestedQueries": [
+        "subpremise"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    },
+    {
+      "id": "town_square",
+      "label": "Town Square",
+      "group": "Additional (Table B)",
+      "table": "B",
+      "slug": "town-square",
+      "suggestedQueries": [
+        "town square"
+      ],
+      "note": "Returned in Places API responses; not typically used as a Maps text search niche alone."
+    }
+  ]
+}
