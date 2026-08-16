@@ -63,7 +63,7 @@ Usage:
 
 Commands:
   scrape       Discover places on Google Maps (Playwright)
-  enrich       Fetch websites and extract emails (only if fields.email=true)
+  enrich       Fetch websites and extract emails/phones (if fields.email and/or fields.phone)
   export       Write data/<country>/<category>/leads.csv (enabled fields only)
   categories   Search the full Google Maps place-type catalog
 
@@ -203,9 +203,11 @@ async function cmdScrape(flags: Map<string, string | boolean>): Promise<void> {
 }
 
 async function cmdEnrich(flags: Map<string, string | boolean>): Promise<void> {
-  if (!isFieldEnabled("email")) {
+  const wantEmail = isFieldEnabled("email");
+  const wantPhone = isFieldEnabled("phone");
+  if (!wantEmail && !wantPhone) {
     console.log(
-      `[cli] enrich skipped — set fields.email to true in config/scraper.json to extract emails`,
+      `[cli] enrich skipped — set fields.email and/or fields.phone to true in config/scraper.json`,
     );
     return;
   }
