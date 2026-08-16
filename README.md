@@ -166,9 +166,9 @@ data/<country>/<category-slug>/
 
 **Concurrency locks** — scrape and enrich are mutually exclusive per category:
 
-- `scrape` writes `.scrape_lock` (and refuses to start while `.enrich_lock` exists).
-- `enrich` writes `.enrich_lock` (and refuses to start while `.scrape_lock` exists).
-- Locks are removed automatically on normal exit. If a process is killed, a stale lock blocks the other command — delete `data/<country>/<category>/.scrape_lock` or `.enrich_lock` to force.
+- `scrape` creates `.scrape_lock` exclusively (and refuses to start while `.enrich_lock` exists, or if another scrape already holds the lock).
+- `enrich` creates `.enrich_lock` exclusively (and refuses to start while `.scrape_lock` exists, or if another enrich already holds the lock).
+- Each process removes only its own lock (PID-matched) on normal exit. If a process is killed, a stale lock blocks the other command — delete `data/<country>/<category>/.scrape_lock` or `.enrich_lock` to force.
 
 ## Disclaimer
 

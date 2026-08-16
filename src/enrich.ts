@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
-import { existsSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { CONTACT_PATHS, dataDir, isFieldEnabled, randomDelay } from "./config.js";
+import { lockExists, releaseOwnLock, tryAcquireLock } from "./locks.js";
 import { loadPlaces, rewritePlaces } from "./store.js";
 import type { EnrichOptions, PlaceRecord } from "./types.js";
 
@@ -66,6 +66,7 @@ function normalizeWebsite(url: string): string | null {
 async function fetchHtml(url: string, timeoutMs: number): Promise<string | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const MAX_BODY = 5 * 1024 * 1024;
   try {
     const res = await fetch(url, {
       signal: controller.signal,
@@ -79,13 +80,33 @@ async function fetchHtml(url: string, timeoutMs: number): Promise<string | null>
     if (!res.ok) return null;
     const ct = res.headers.get("content-type") ?? "";
     if (ct && !/text\/html|application\/xhtml/i.test(ct)) return null;
-    // Cap body size: business sites can serve multi-MB pages; we only need
-    // the text for email extraction. Prevents unbounded memory on --timeout
-    // with slow-drip responses.
-    const MAX_BODY = 5 * 1024 * 1024;
-    const buf = await res.arrayBuffer();
-    if (buf.byteLength > MAX_BODY) return null;
-    return new TextDecoder("utf-8", { fatal: false }).decode(buf);
+
+    // Cap body size while streaming — avoid buffering multi-MB pages in memory.
+    const contentLength = res.headers.get("content-length");
+    if (contentLength && Number(contentLength) > MAX_BODY) return null;
+    if (!res.body) return null;
+
+    const reader = res.body.getReader();
+    const chunks: Uint8Array[] = [];
+    let total = 0;
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > MAX_BODY) {
+        await reader.cancel().catch(() => undefined);
+        return null;
+      }
+      chunks.push(value);
+    }
+
+    const merged = new Uint8Array(total);
+    let offset = 0;
+    for (const chunk of chunks) {
+      merged.set(chunk, offset);
+      offset += chunk.byteLength;
+    }
+    return new TextDecoder("utf-8", { fatal: false }).decode(merged);
   } catch {
     return null;
   } finally {
@@ -209,22 +230,26 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
     return { total: 0, enriched: 0, withEmail: 0 };
   }
 
-  // Mutual exclusion with scrape: refuse to run while a scrape holds the lock
-  // (checkpointPlaces rewrites places.jsonl and would otherwise clobber the
-  // scrape's concurrent appends).
-  const lockPath = resolve(dataDir(opts.country, opts.categorySlug), ".scrape_lock");
-  if (existsSync(lockPath)) {
+  // Mutual exclusion with scrape: exclusive .enrich_lock; refuse if scrape holds
+  // .scrape_lock (checkpointPlaces rewrites places.jsonl and would race appends).
+  const dataRoot = dataDir(opts.country, opts.categorySlug);
+  const scrapeLockPath = resolve(dataRoot, ".scrape_lock");
+  const enrichLockPath = resolve(dataRoot, ".enrich_lock");
+  if (!tryAcquireLock(enrichLockPath)) {
     console.error(
-      `[enrich] Scrape lock present (${lockPath}) — enrich would race the scrape. ` +
+      `[enrich] Enrich lock already held (${enrichLockPath}). ` +
+        `Wait for the other enrich to finish or remove the lock to force.`,
+    );
+    return { total: places.length, enriched: 0, withEmail: 0 };
+  }
+  if (lockExists(scrapeLockPath)) {
+    releaseOwnLock(enrichLockPath);
+    console.error(
+      `[enrich] Scrape lock present (${scrapeLockPath}) — enrich would race the scrape. ` +
         `Wait for the scrape to finish or remove the lock to force.`,
     );
     return { total: places.length, enriched: 0, withEmail: 0 };
   }
-  const enrichLockPath = resolve(
-    dataDir(opts.country, opts.categorySlug),
-    ".enrich_lock",
-  );
-  if (!existsSync(enrichLockPath)) writeFileSync(enrichLockPath, String(process.pid), "utf8");
 
   const needsWork = places.filter((p) => !p.enriched_at);
   console.log(
@@ -268,21 +293,17 @@ export async function runEnrich(opts: EnrichOptions): Promise<{
       }
       return updated;
     });
+
+    const merged = checkpointPlaces(opts.country, opts.categorySlug, places, updatedById);
+    const withEmail = merged.filter((p) => p.email).length;
+    console.log(
+      `[enrich] Done. ${withEmail}/${merged.length} places have email ` +
+        `(${merged.length ? ((withEmail / merged.length) * 100).toFixed(1) : 0}%)`,
+    );
+
+    return { total: merged.length, enriched: needsWork.length, withEmail };
   } finally {
     process.off("uncaughtException", onUncaught);
-    try {
-      if (existsSync(enrichLockPath)) rmSync(enrichLockPath);
-    } catch {
-      // best-effort; a stale .enrich_lock blocks scrape until removed (README)
-    }
+    releaseOwnLock(enrichLockPath);
   }
-
-  const merged = checkpointPlaces(opts.country, opts.categorySlug, places, updatedById);
-  const withEmail = merged.filter((p) => p.email).length;
-  console.log(
-    `[enrich] Done. ${withEmail}/${merged.length} places have email ` +
-      `(${merged.length ? ((withEmail / merged.length) * 100).toFixed(1) : 0}%)`,
-  );
-
-  return { total: merged.length, enriched: needsWork.length, withEmail };
 }
