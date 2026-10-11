@@ -5,14 +5,14 @@ import {
 } from "./categories.js";
 import {
   DEFAULT_CATEGORY,
-  DEFAULT_COUNTRY,
   DEFAULT_ENRICH_CONCURRENCY,
   DEFAULT_ENRICH_TIMEOUT_MS,
   DEFAULT_MAX_PER_TILE,
   DEFAULT_MAX_PLACES,
-  DEFAULT_PILOT_STATES,
   allStateCodes,
+  defaultPilotStates,
   getDefaultCategory,
+  getDefaultCountry,
   getEnabledExportFields,
   isFieldEnabled,
   loadCategory,
@@ -68,11 +68,11 @@ Commands:
   categories   Search the full Google Maps place-type catalog
 
 Scrape options:
-  --country <code>     Country config (default: ${DEFAULT_COUNTRY})
+  --country <code>     Country config (default: ${getDefaultCountry()})
   --category <slug>    Category slug (default: ${defaultCat})
                        Known: ${listCategorySlugs().join(", ") || "(see config/scraper.json)"}
                        Enabled: ${enabled.join(", ") || "(none)"}
-  --states <list>      Comma-separated state codes, or "all" (default pilot: ${DEFAULT_PILOT_STATES.join(",")})
+  --states <list>      Comma-separated state/region codes, or "all" (default pilot depends on country)
   --max-places <n>     Global place cap (default: ${DEFAULT_MAX_PLACES})
   --max-per-tile <n>   Per-tile result cap (default: ${DEFAULT_MAX_PER_TILE})
   --headed             Show browser (debug / CAPTCHA resolve)
@@ -143,7 +143,7 @@ function flagBool(flags: Map<string, string | boolean>, key: string): boolean {
 }
 
 function resolveStates(flags: Map<string, string | boolean>, country: string): string[] {
-  const statesRaw = flagStr(flags, "states", DEFAULT_PILOT_STATES.join(","));
+  const statesRaw = flagStr(flags, "states", defaultPilotStates(country).join(","));
   if (statesRaw.trim().toLowerCase() === "all") {
     return allStateCodes(country);
   }
@@ -154,7 +154,7 @@ function resolveStates(flags: Map<string, string | boolean>, country: string): s
 }
 
 async function cmdScrape(flags: Map<string, string | boolean>): Promise<void> {
-  const country = flagStr(flags, "country", DEFAULT_COUNTRY).toLowerCase();
+  const country = flagStr(flags, "country", getDefaultCountry()).toLowerCase();
   const category = loadCategory(flagStr(flags, "category", getDefaultCategory()));
   const config = loadCountry(country);
 
@@ -212,7 +212,7 @@ async function cmdEnrich(flags: Map<string, string | boolean>): Promise<void> {
     return;
   }
 
-  const country = flagStr(flags, "country", DEFAULT_COUNTRY).toLowerCase();
+  const country = flagStr(flags, "country", getDefaultCountry()).toLowerCase();
   const category = loadCategory(flagStr(flags, "category", getDefaultCategory()));
   if (category.slug === "book-publisher") migrateLegacyBookPublisher(country);
 
@@ -226,7 +226,7 @@ async function cmdEnrich(flags: Map<string, string | boolean>): Promise<void> {
 }
 
 async function cmdExport(flags: Map<string, string | boolean>): Promise<void> {
-  const country = flagStr(flags, "country", DEFAULT_COUNTRY).toLowerCase();
+  const country = flagStr(flags, "country", getDefaultCountry()).toLowerCase();
   const category = loadCategory(flagStr(flags, "category", getDefaultCategory()));
   if (category.slug === "book-publisher") migrateLegacyBookPublisher(country);
 
@@ -340,6 +340,8 @@ async function main(): Promise<void> {
       break;
     case "enrich":
       await cmdEnrich(flags);
+      // Enrich can leave open fetch/agent handles; force exit so pipelines don't hang.
+      process.exit(process.exitCode ?? 0);
       break;
     case "export":
       await cmdExport(flags);

@@ -5,7 +5,9 @@ import {
   type CategoryDef,
 } from "./categories.js";
 import type { CountryConfig } from "./types.js";
+import { aeCountry } from "./countries/ae.js";
 import { usCountry } from "./countries/us.js";
+import { loadScraperConfig } from "./scraper_config.js";
 
 export {
   FIELD_ORDER,
@@ -24,6 +26,15 @@ export function getDefaultCategory(): string {
   return getDefaultCategorySlug();
 }
 
+/** Country from config/scraper.json search.country, else DEFAULT_COUNTRY. */
+export function getDefaultCountry(): string {
+  try {
+    return loadScraperConfig().search.country || DEFAULT_COUNTRY;
+  } catch {
+    return DEFAULT_COUNTRY;
+  }
+}
+
 /** Static fallback for help text / early imports. */
 export const DEFAULT_CATEGORY = "marketing-agency";
 
@@ -32,6 +43,12 @@ export const DEFAULT_MAX_PER_TILE = 120;
 export const DEFAULT_ENRICH_CONCURRENCY = 4;
 export const DEFAULT_ENRICH_TIMEOUT_MS = 10_000;
 export const DEFAULT_PILOT_STATES = ["CA", "NY"];
+
+/** Pilot region codes per country when --states is omitted. */
+const PILOT_STATES_BY_COUNTRY: Record<string, string[]> = {
+  us: ["CA", "NY"],
+  ae: ["DXB", "AUH"],
+};
 
 /** Contact-ish paths to try after the homepage. */
 export const CONTACT_PATHS = [
@@ -45,7 +62,16 @@ export const CONTACT_PATHS = [
 
 const COUNTRIES: Record<string, CountryConfig> = {
   us: usCountry,
+  ae: aeCountry,
 };
+
+/** Default --states pilot list for a country (falls back to all region codes). */
+export function defaultPilotStates(country: string): string[] {
+  const key = country.toLowerCase();
+  const configured = PILOT_STATES_BY_COUNTRY[key];
+  if (configured?.length) return configured;
+  return allStateCodes(key);
+}
 
 export function loadCountry(code: string): CountryConfig {
   const key = code.toLowerCase();

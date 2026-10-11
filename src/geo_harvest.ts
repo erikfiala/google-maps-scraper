@@ -4,12 +4,12 @@
  */
 import {
   DEFAULT_CATEGORY,
-  DEFAULT_COUNTRY,
   DEFAULT_MAX_PER_TILE,
   DEFAULT_MAX_PLACES,
-  DEFAULT_PILOT_STATES,
   allStateCodes,
+  defaultPilotStates,
   getDefaultCategory,
+  getDefaultCountry,
   loadCategory,
   loadCountry,
 } from "./config.js";
@@ -47,7 +47,7 @@ function flagNum(flags: Map<string, string | boolean>, key: string, fallback: nu
 
 async function main(): Promise<void> {
   const flags = parseFlags(process.argv.slice(2));
-  const country = flagStr(flags, "country", DEFAULT_COUNTRY).toLowerCase();
+  const country = flagStr(flags, "country", getDefaultCountry()).toLowerCase();
   const defaultCat = (() => {
     try {
       return getDefaultCategory();
@@ -57,11 +57,13 @@ async function main(): Promise<void> {
   })();
   const category = loadCategory(flagStr(flags, "category", defaultCat));
   const config = loadCountry(country);
+  /** Optional separate data folder for parallel shard workers (e.g. investment-firm__DXB-difc). */
+  const dataSlug = flagStr(flags, "data-slug", category.slug);
 
   if (category.slug === "book-publisher") migrateLegacyBookPublisher(country);
-  ensureDataDir(country, category.slug);
+  ensureDataDir(country, dataSlug);
 
-  const statesRaw = flagStr(flags, "states", DEFAULT_PILOT_STATES.join(","));
+  const statesRaw = flagStr(flags, "states", defaultPilotStates(country).join(","));
   const states =
     statesRaw.trim().toLowerCase() === "all"
       ? allStateCodes(country)
@@ -71,17 +73,38 @@ async function main(): Promise<void> {
           .filter(Boolean);
 
   let tiles = config.tiles.filter((t) => states.includes(t.code));
-  if (!tiles.length) {
+  const tilesRaw = flagStr(flags, "tiles", "");
+  if (tilesRaw.trim()) {
+    const want = new Set(
+      tilesRaw
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
+    );
+    tiles = config.tiles.filter((t) => want.has(t.id));
+    if (!tiles.length) {
+      throw new Error(
+        `No tiles for --tiles [${[...want].join(", ")}] in country ${country}. ` +
+          `Available: ${config.tiles.map((t) => t.id).join(", ")}`,
+      );
+    }
+  } else if (!tiles.length) {
     throw new Error(`No tiles for states [${states.join(", ")}] in country ${country}`);
   }
 
   const dryRun = flags.get("dry-run") === true;
   if (dryRun) tiles = tiles.slice(0, 1);
 
+  // Optional single-query override for fast parallel shard runs.
+  const queryOverride = flagStr(flags, "query", "");
+  const searchQueries = queryOverride.trim()
+    ? [queryOverride.trim()]
+    : category.queries;
+
   const opts: ScrapeOptions = {
     country,
-    categorySlug: category.slug,
-    searchQueries: category.queries,
+    categorySlug: dataSlug,
+    searchQueries,
     categoryLabel: category.label,
     states,
     maxPlaces: flagNum(
@@ -95,9 +118,9 @@ async function main(): Promise<void> {
   };
 
   console.log(
-    `[scrape_main] country=${country} category=${category.slug} ` +
-      `queries=[${category.queries.join(" | ")}] states=${states.join(",")} ` +
-      `tiles=${tiles.length} maxPlaces=${opts.maxPlaces}`,
+    `[scrape_main] country=${country} category=${category.slug} dataSlug=${dataSlug} ` +
+      `queries=[${searchQueries.join(" | ")}] states=${states.join(",")} ` +
+      `tiles=${tiles.map((t) => t.id).join(",")} maxPlaces=${opts.maxPlaces}`,
   );
 
   const result = await runScrape(tiles, opts);
