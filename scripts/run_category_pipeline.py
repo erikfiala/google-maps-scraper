@@ -21,26 +21,30 @@ CONFIG = ROOT / "config" / "scraper.json"
 LOG_DIR = Path("/tmp/google-maps-scraper-pipeline")
 SUMMARY = LOG_DIR / "summary.jsonl"
 
-COUNTRY = "us"
 MAX_PLACES = "50000"
 ENRICH_CONCURRENCY = "3"
 
 
+def load_config() -> dict:
+    return json.loads(CONFIG.read_text())
+
+
+def load_country() -> str:
+    return str(load_config().get("search", {}).get("country") or "us").lower()
+
+
 def load_enabled_categories() -> list[str]:
-    cfg = json.loads(CONFIG.read_text())
-    cats = cfg.get("search", {}).get("categories", [])
+    cats = load_config().get("search", {}).get("categories", [])
     return [c["slug"] for c in cats if c.get("enabled")]
 
 
 def enrich_fields_enabled() -> bool:
-    cfg = json.loads(CONFIG.read_text())
-    fields = cfg.get("fields", {})
+    fields = load_config().get("fields", {})
     return bool(fields.get("email", True)) or bool(fields.get("phone", False))
 
 
 def field_enabled(name: str, default: bool = False) -> bool:
-    cfg = json.loads(CONFIG.read_text())
-    return bool(cfg.get("fields", {}).get(name, default))
+    return bool(load_config().get("fields", {}).get(name, default))
 
 
 def log(msg: str) -> None:
@@ -52,7 +56,7 @@ def log(msg: str) -> None:
 
 
 def cat_dir(slug: str) -> Path:
-    return ROOT / "data" / COUNTRY / slug
+    return ROOT / "data" / load_country() / slug
 
 
 def load_progress(slug: str) -> dict | None:
@@ -69,12 +73,16 @@ def tile_count() -> int:
     global _TILE_COUNT
     if _TILE_COUNT is not None:
         return _TILE_COUNT
+    country = load_country()
     out = subprocess.check_output(
         [
             "npx",
             "tsx",
             "-e",
-            "import { usCountry } from './src/countries/us.ts'; console.log(usCountry.tiles.length)",
+            (
+                "import { loadCountry } from './src/config.ts'; "
+                f"console.log(loadCountry('{country}').tiles.length)"
+            ),
         ],
         cwd=str(ROOT),
         text=True,
@@ -167,7 +175,7 @@ def scrape_category(slug: str) -> int:
             "tsx",
             "src/geo_harvest.ts",
             "--country",
-            COUNTRY,
+            load_country(),
             "--category",
             slug,
             "--states",
@@ -223,7 +231,7 @@ def enrich_category(slug: str) -> int:
                 "enrich",
                 "--",
                 "--country",
-                COUNTRY,
+                load_country(),
                 "--category",
                 slug,
                 "--concurrency",
@@ -250,7 +258,7 @@ def export_category(slug: str) -> dict:
             "export",
             "--",
             "--country",
-            COUNTRY,
+            load_country(),
             "--category",
             slug,
         ],
@@ -283,7 +291,7 @@ def main() -> int:
     if not cats:
         log("No categories to run. Enable categories in config/scraper.json or pass slugs.")
         return 1
-    log(f"Pipeline start categories={cats}")
+    log(f"Pipeline start country={load_country()} categories={cats}")
 
     results = []
     for slug in cats:

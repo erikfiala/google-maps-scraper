@@ -14,6 +14,16 @@ import type { GeoTile, PlaceRecord, ScrapeOptions } from "./types.js";
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
 
+/** Shorter pacing when FAST_SCRAPE=1 (parallel shard runs). */
+const FAST = ["1", "true", "yes"].includes(
+  (process.env.FAST_SCRAPE || "").toLowerCase(),
+);
+
+function pace(minMs: number, maxMs: number): Promise<void> {
+  if (!FAST) return randomDelay(minMs, maxMs);
+  return randomDelay(Math.max(150, Math.floor(minMs * 0.35)), Math.max(250, Math.floor(maxMs * 0.4)));
+}
+
 function buildSearchUrl(tile: GeoTile, query: string): string {
   const q = encodeURIComponent(`${query} near ${tile.queryLocation}`);
   return `https://www.google.com/maps/search/${q}/@${tile.lat},${tile.lng},${tile.zoom}z`;
@@ -138,7 +148,7 @@ async function scrollFeed(page: Page, maxScrolls: number): Promise<number> {
       const node = el as HTMLElement;
       node.scrollBy(0, node.scrollHeight);
     });
-    await randomDelay(600, 1400);
+    await pace(600, 1400);
   }
 
   return lastCount;
@@ -347,11 +357,11 @@ async function scrapeQueryOnTile(
       }
       added += 1;
       // Slower pacing reduces /sorry/ rate-limits on sustained runs
-      await randomDelay(1200, 2800);
+      await pace(1200, 2800);
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       console.warn(`[maps] Failed place on ${tile.id}: ${msg}`);
-      await randomDelay(1500, 3000);
+      await pace(1500, 3000);
     }
   }
 
@@ -378,7 +388,7 @@ async function scrapeTile(
     );
     added += result.added;
     if (result.hitCaptcha) return { added, hitCaptcha: true };
-    await randomDelay(800, 1600);
+    await pace(800, 1600);
   }
   return { added, hitCaptcha: false };
 }
@@ -507,7 +517,7 @@ export async function runScrape(
       }
       tilesDone += 1;
 
-      await randomDelay(1000, 2200);
+      await pace(1000, 2200);
     }
   } finally {
     await browser?.close();

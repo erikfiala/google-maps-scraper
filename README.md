@@ -13,13 +13,15 @@ No Monid, Apify, Bright Data, or other paid scrape APIs.
 
 ```bash
 npm i && npx playwright install chromium
-# edit config/scraper.json — toggle fields + categories
+# edit config/scraper.json — toggle fields + categories + country
 npm run scrape -- --states all
 npm run enrich
 npm run export
 ```
 
-Default category is **marketing-agency** (enabled in config). Pilot scrape uses CA + NY unless you pass `--states all` or a custom list.
+Default country/categories come from `config/scraper.json` (currently **ae** + investment/finance niches). Pilot regions are country-aware (`DXB,AUH` for UAE; `CA,NY` for US) unless you pass `--states all` or a custom list.
+
+Supported countries: `us`, `ae`.
 
 ## Configuring output fields
 
@@ -216,7 +218,7 @@ If this helped you:
 
 - Visit [erikfiala.com](https://erikfiala.com)
 - Follow on [X](https://x.com/fialaerik) and [LinkedIn](https://www.linkedin.com/in/erikfiala)
-- Share [Audioworm](https://www.audioworm.fm), [Breakflare](https://www.breakflare.com), and [Hausive](https://www.hausive.com) with people who might find them valuable
+- Share [Audioworm](https://www.audioworm.fm) and [Hausive](https://www.hausive.com) with people who might find them valuable
 
 ## License
 

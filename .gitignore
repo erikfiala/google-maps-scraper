@@ -7,3 +7,7 @@ blob-report/
 playwright/.cache/
 *.log
 .DS_Store
+
+# Scraped lead exports (never commit)
+*.csv
+!package-lock.json

@@ -3,23 +3,65 @@
     "name": true,
     "email": true,
     "phone": false,
-    "address": false,
-    "website": false,
+    "address": true,
+    "website": true,
     "category": true,
     "maps_url": false,
     "place_id": false,
-    "city": false,
-    "state": false,
-    "country": false
+    "city": true,
+    "state": true,
+    "country": true
   },
   "search": {
-    "country": "us",
+    "country": "ae",
     "categories": [
       {
-        "slug": "marketing-agency",
+        "slug": "investment-firm",
         "enabled": true,
-        "label": "marketing agency",
-        "queries": ["marketing agency", "advertising agency"]
+        "label": "investment firm",
+        "queries": ["investment firm"]
+      },
+      {
+        "slug": "financial-advisor",
+        "enabled": true,
+        "label": "financial advisor",
+        "queries": ["wealth management"]
+      },
+      {
+        "slug": "venture-capital",
+        "enabled": true,
+        "label": "venture capital",
+        "queries": ["venture capital"]
+      },
+      {
+        "slug": "brokerage",
+        "enabled": true,
+        "label": "brokerage",
+        "queries": ["stock broker"]
+      },
+      {
+        "slug": "cryptocurrency",
+        "enabled": true,
+        "label": "cryptocurrency",
+        "queries": ["crypto exchange"]
+      },
+      {
+        "slug": "bank",
+        "enabled": true,
+        "label": "bank",
+        "queries": ["investment bank"]
+      },
+      {
+        "slug": "finance",
+        "enabled": true,
+        "label": "finance",
+        "queries": ["fintech"]
+      },
+      {
+        "slug": "accounting",
+        "enabled": true,
+        "label": "accounting",
+        "queries": ["accounting"]
       }
     ]
   }
