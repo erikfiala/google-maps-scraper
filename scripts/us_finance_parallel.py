@@ -336,7 +336,7 @@ def write_category_email_csv(category: str) -> Path:
     )
     out.write_text(body)
     ARTIFACTS.mkdir(parents=True, exist_ok=True)
-    (ARTIFACTS / f"us_{category}_emails.csv").write_text(body)
+    (ARTIFACTS / category_email_csv_name(category)).write_text(body)
     # Also copy leads.csv when present
     leads = cat_dir(category) / "leads.csv"
     if leads.exists():
@@ -359,12 +359,12 @@ def write_combined_csv(categories: list[str]) -> Path:
         "country",
         "category",
     ]
+    import csv
+
     for category in categories:
-        path = ROOT / "data" / COUNTRY / f"us_{category}_emails.csv"
+        path = ROOT / "data" / COUNTRY / category_email_csv_name(category)
         if not path.exists():
             continue
-        import csv
-
         with path.open() as f:
             for r in csv.DictReader(f):
                 email = (r.get("email") or "").strip().lower()
