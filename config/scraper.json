@@ -19,49 +19,66 @@
         "slug": "investment-firm",
         "enabled": true,
         "label": "investment firm",
-        "queries": ["investment firm"]
+        "queries": [
+          "investment firm"
+        ]
       },
       {
         "slug": "financial-advisor",
         "enabled": true,
         "label": "financial advisor",
-        "queries": ["wealth management"]
+        "queries": [
+          "wealth management"
+        ]
       },
       {
         "slug": "venture-capital",
         "enabled": true,
         "label": "venture capital",
-        "queries": ["venture capital"]
+        "queries": [
+          "venture capital"
+        ]
       },
       {
         "slug": "brokerage",
         "enabled": true,
         "label": "brokerage",
-        "queries": ["stock broker"]
+        "queries": [
+          "stock broker"
+        ]
       },
       {
         "slug": "cryptocurrency",
         "enabled": true,
         "label": "cryptocurrency",
-        "queries": ["crypto exchange"]
+        "queries": [
+          "cryptocurrency",
+          "crypto exchange"
+        ]
       },
       {
         "slug": "bank",
         "enabled": true,
         "label": "bank",
-        "queries": ["investment bank"]
+        "queries": [
+          "investment bank"
+        ]
       },
       {
         "slug": "finance",
         "enabled": true,
         "label": "finance",
-        "queries": ["fintech"]
+        "queries": [
+          "fintech"
+        ]
       },
       {
         "slug": "accounting",
         "enabled": true,
         "label": "accounting",
-        "queries": ["accounting"]
+        "queries": [
+          "accounting"
+        ]
       }
     ]
   }
