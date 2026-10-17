@@ -262,8 +262,15 @@ def export_category(category: str) -> int:
     )
 
 
+def category_email_csv_name(category: str) -> str:
+    # Avoid colliding with the combined us_finance_emails.csv
+    if category == "finance":
+        return "us_fintech_emails.csv"
+    return f"us_{category}_emails.csv"
+
+
 def write_category_email_csv(category: str) -> Path:
-    out = ROOT / "data" / COUNTRY / f"us_{category}_emails.csv"
+    out = ROOT / "data" / COUNTRY / category_email_csv_name(category)
     places = cat_dir(category) / "places.jsonl"
     rows: list[dict] = []
     seen: set[str] = set()
